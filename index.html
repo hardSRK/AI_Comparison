@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRK Consulting — AI Chatbot Board Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<button id="menu-toggle" onclick="toggleMenu()">☰</button>
+
+<!-- ─── SIDEBAR ─── -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAJ2BLADASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAcIAQUGBAMC/8QAVhABAAEDAgIEAxIKBwcDBQEAAAECAwQFBgcREhMhMQhBURQVFiIjN1JVYXF1gZGTobGy0RcyNUJyc3SUs8EkU1ZigpKiMzZDVGODtCdEZCZFRqTDwv/EABsBAQACAwEBAAAAAAAAAAAAAAABBgIEBQMH/8QAOBEBAAEDAgIGCQIFBQEAAAAAAAECAwQFERIhBhQxQVGRExUiMjNhcaGxFoEjJDRSUyVD0eHw8f/aAAwDAQACEQMRAD8ApoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/2Q==" alt="SRK Consulting" style="width:180px;height:auto;display:block;margin-bottom:11px;">
+    <div class="subtitle">AI Chatbot — Board Report</div>
+    <div class="badge">Confidential · April 2026</div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item active" onclick="show('summary')"><span class="num">00</span>Executive Summary</a>
+    <a class="nav-item" onclick="show('architecture')"><span class="num">01</span>Architecture</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Decision</div>
+    <a class="nav-item" onclick="show('scorecard')"><span class="num">02</span>Weighted Scorecard</a>
+    <a class="nav-item" onclick="show('governance')"><span class="num">03</span>Governance & Control</a>
+    <a class="nav-item" onclick="show('risk')"><span class="num">04</span>Risk Register</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Practical</div>
+    <a class="nav-item" onclick="show('cost')"><span class="num">05</span>Cost & Storage</a>
+    <a class="nav-item" onclick="show('tokens')"><span class="num">06</span>What is a Token?</a>
+    <a class="nav-item" onclick="show('data')"><span class="num">07</span>Chat Storage & Archive</a>
+    <a class="nav-item" onclick="show('ui')"><span class="num">08</span>UI & Usability</a>
+    <a class="nav-item" onclick="show('coding')"><span class="num">09</span>Adding Coding</a>
+    <a class="nav-item" onclick="show('training')"><span class="num">10</span>Training & Rollout</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">External</div>
+    <a class="nav-item" onclick="show('regulation')"><span class="num">11</span>SA Regulation & POPIA</a>
+    <a class="nav-item" onclick="show('geopolitical')"><span class="num">12</span>Geopolitical Risks</a>
+    <a class="nav-item" onclick="show('exitstrategy')"><span class="num">13</span>Exit Strategy</a>
+    <a class="nav-item" onclick="show('recommendation')"><span class="num">14</span>Board Recommendation</a>
+  </div>
+
+  <div class="sidebar-footer">
+    SRK Consulting · AI Steering Committee<br>Prepared April 2026
+  </div>
+</nav>
+
+<!-- ─── MAIN ─── -->
+<div id="main">
+
+<!-- HERO (always visible) -->
+<div class="hero">
+  <div class="hero-tag">Board Decision Report · April 2026</div>
+  <h1>Enterprise AI Chatbot:<br><em>Claude API</em> vs Individual Licences</h1>
+  <p style="color:rgba(255,255,255,.65); max-width:600px; font-size:15px; margin-top:12px;">
+    A comprehensive evaluation for the SRK Consulting AI Steering Committee — covering governance, cost, regulation, risk, and implementation across 100 employees.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-stat"><div class="val">$800–1,600</div><div class="lbl">Est. Monthly API Cost (Typical)</div></div>
+    <div class="hero-stat"><div class="val">$6,000</div><div class="lbl">Monthly Cost: 100 Pro Licences</div></div>
+    <div class="hero-stat"><div class="val">87%</div><div class="lbl">Claude API Weighted Score</div></div>
+    <div class="hero-stat"><div class="val">POPIA</div><div class="lbl">Key SA Regulation to Address</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 00 SUMMARY -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section active" id="sec-summary">
+  <div class="section-header">
+    <div class="section-num">00</div>
+    <div>
+      <div class="section-title">Executive Summary</div>
+      <div class="section-desc">What the board needs to know in under 3 minutes</div>
+    </div>
+  </div>
+
+  <div class="callout gold">
+    <div class="callout-icon">🏛️</div>
+    <div class="callout-body">
+      <strong>Board Recommendation</strong>
+      <p>Build SRK's company chatbot on the <strong>Claude API (Anthropic)</strong> using Claude Sonnet 4.6 as the primary model, deployed through the existing Azure infrastructure. This is not simply the cheaper option — it is the only option that gives SRK legal and operational control over how AI is used within the organisation.</p>
+    </div>
+  </div>
+
+  <div class="card-grid card-grid-3">
+    <div class="card accent-navy">
+      <div class="card-title">💰 Cost</div>
+      <div class="card-body">API at typical use: <strong>$800–1,600/month</strong> for 100 active users. 100 individual Pro licences: <strong>$2,000/month fixed</strong>, with no central control and daily message caps.</div>
+    </div>
+    <div class="card accent-red">
+      <div class="card-title">⚖️ Governance</div>
+      <div class="card-body">Individual licences give SRK <strong>zero visibility</strong> into what employees ask, what data they share, or what the AI produces. A single employee could paste confidential client data with no trace.</div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">🔒 Control</div>
+      <div class="card-body">The API model allows SRK to enforce rules, log every conversation, integrate with Azure systems, and restrict scope — all configured by IT. Employees cannot bypass the system prompt.</div>
+    </div>
+    <div class="card accent-green">
+      <div class="card-title">📋 Compliance</div>
+      <div class="card-body">South Africa's POPIA requires lawful processing of personal data. The API model — with SRK owning the data layer — is far more defensible than individual accounts on US-hosted platforms.</div>
+    </div>
+    <div class="card accent-blue">
+      <div class="card-title">🚀 Implementation</div>
+      <div class="card-body">8-week build to full rollout. Proof of concept achievable in 4 weeks. Initial build requires 2 developers. Ongoing management: 20–30% of one person's time after launch.</div>
+    </div>
+    <div class="card accent-amber">
+      <div class="card-title">🌍 Geopolitical</div>
+      <div class="card-body">Anthropic faces a Pentagon dispute that may affect US government access, but <strong>commercial API access is unaffected</strong>. MCP open standard provides exit capability if needed.</div>
+    </div>
+  </div>
+
+  <h3>Why individual licences are not a solution</h3>
+  <p>The temptation to simply issue 100 Claude Pro or ChatGPT Plus licences is understandable — it requires no development. But this approach is ungovernable by design:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Consideration</th>
+          <th class="col-bad">100 Pro Licences — Uncontrolled</th>
+          <th class="col-claude">Claude API — Company Controlled</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Monthly cost</strong></td><td>$2,000/month fixed — paid whether used or not</td><td>$800–1,600/month at typical use, usage-based</td></tr>
+        <tr><td><strong>Message limits</strong></td><td>Per-user daily caps — employees get blocked during busy periods</td><td>No message caps — unlimited for all 100 users</td></tr>
+        <tr><td><strong>Company policy enforcement</strong></td><td>Cannot be technically enforced — relies on trust alone</td><td>Enforced at the application layer — technically binding</td></tr>
+        <tr><td><strong>Confidential data risk</strong></td><td>Any employee can paste client data with no visibility or recourse</td><td>Skills scoped narrowly; all inputs logged and auditable</td></tr>
+        <tr><td><strong>Brand / reputational risk</strong></td><td>Employees may produce AI-generated client content with no oversight</td><td>System prompt enforces tone, scope, and standards at all times</td></tr>
+        <tr><td><strong>Audit trail</strong></td><td>None — SRK cannot see what AI is producing internally</td><td>Full log in SRK's own Azure database — available for compliance</td></tr>
+        <tr><td><strong>Integration with SRK systems</strong></td><td>None — no connection to SharePoint, library, or project database</td><td>Full integration via custom skills in the application layer</td></tr>
+        <tr><td><strong>POPIA compliance posture</strong></td><td>Weak — personal data may flow to US servers via employee accounts</td><td>Strong — SRK controls the data layer; Data Processing Addendum available</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout danger">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <strong>Reputational &amp; Legal Exposure</strong>
+      <p>If an employee uses a personal AI licence to draft a client-facing report that contains errors, fabricated data, or confidential information belonging to another client — SRK has no record of what happened, no ability to investigate, and no defensible compliance posture. With the API model, every conversation is logged in SRK's own database and can be reviewed immediately.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 01 ARCHITECTURE — FULL INTERACTIVE -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-architecture">
+
+<style>
+.arch-tabs{display:flex;gap:0;margin-bottom:28px;border-bottom:2px solid var(--srk-border)}
+.arch-tab{padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;color:var(--srk-muted);background:none;border-top:none;border-left:none;border-right:none;transition:all .2s;font-family:var(--font-body)}
+.arch-tab:hover{color:var(--srk-navy)}
+.arch-tab.active{color:#111111;border-bottom-color:#e8621a;font-weight:700}
+.arch-tabpane{display:none}
+.arch-tabpane.active{display:block}
+.idc-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:20px;padding:12px 18px;background:white;border:1px solid var(--srk-border);border-radius:10px;font-size:12px;color:var(--srk-muted)}
+.idc-legend-item{display:flex;align-items:center;gap:7px}
+.idc-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+.idc-band{border-radius:14px;border:1px solid;padding:18px 20px;margin-bottom:0;position:relative}
+.idc-band.l1{border-color:rgba(13,148,136,.35);background:rgba(13,148,136,.03)}
+.idc-band.l2{border-color:rgba(232,98,26,.35);background:rgba(232,98,26,.02)}
+.idc-band.l3{border-color:rgba(37,99,235,.35);background:rgba(37,99,235,.03)}
+.idc-band-title{font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:14px}
+.idc-band-title.teal{color:#0d9488}
+.idc-band-title.gold{color:#e8621a}
+.idc-band-title.blue{color:#2563eb}
+.idc-row{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
+.idc-node{display:flex;flex-direction:column;align-items:center;gap:6px;padding:13px 10px 11px;background:white;border:1.5px solid var(--srk-border);border-radius:12px;cursor:pointer;transition:all .2s;min-width:88px;max-width:108px;text-align:center;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.idc-node:hover{border-color:#e8621a;transform:translateY(-3px);box-shadow:0 6px 20px rgba(232,98,26,.18)}
+.idc-node.selected{border-color:#e8621a;background:#fff4ec;box-shadow:0 0 0 3px rgba(232,98,26,.2)}
+.idc-node-icon{font-size:24px;line-height:1}
+.idc-node-label{font-size:11px;font-weight:700;color:var(--srk-navy);line-height:1.3}
+.idc-node-sub{font-size:10px;color:var(--srk-muted);font-family:var(--font-mono)}
+.idc-node-badge{position:absolute;top:-6px;right:-6px;padding:1px 5px;border-radius:20px;font-size:9px;font-weight:700;border:1px solid}
+.nb-g{background:#dcfce7;color:#15803d;border-color:#86efac}
+.nb-a{background:#fff0e6;color:#7a2800;border-color:#e8621a}
+.nb-r{background:#fee2e2;color:#b91c1c;border-color:#fca5a5}
+.nb-b{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
+.idc-connector{display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 0;font-size:11px;color:var(--srk-muted);font-family:var(--font-mono)}
+.idc-connector .arrow{font-size:20px;color:rgba(232,98,26,.7)}
+.idc-sec-band{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:rgba(185,28,28,.04);border:1px solid rgba(185,28,28,.2);border-radius:10px;padding:11px 14px;margin:10px 0}
+.idc-sec-item{display:flex;align-items:center;gap:5px;font-size:12px;color:#b91c1c;padding:5px 10px;background:rgba(185,28,28,.07);border:1px solid rgba(185,28,28,.18);border-radius:6px;cursor:pointer;transition:all .18s;font-weight:500}
+.idc-sec-item:hover{background:rgba(185,28,28,.14)}
+.idc-prompt-strip{display:flex;align-items:center;gap:7px;flex-wrap:wrap;background:rgba(232,98,26,.04);border:1px solid rgba(232,98,26,.18);border-radius:10px;padding:12px 16px;margin:10px 0}
+.idc-pb{padding:6px 11px;border-radius:6px;font-size:11.5px;font-family:var(--font-mono);cursor:pointer;border:1px solid;transition:all .18s;line-height:1.4}
+.idc-pb:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.idc-pb.sys{background:#fff4ec;border-color:#e8621a;color:#7a2800}
+.idc-pb.rol{background:#f0fdfa;border-color:#0d9488;color:#0f4c45}
+.idc-pb.his{background:#fff7f3;border-color:#e8621a;color:#7a2800}
+.idc-pb.sk{background:#f0fdf4;border-color:#15803d;color:#14532d}
+.idc-pb.msg{background:#f8fafc;border-color:var(--srk-border);color:var(--srk-slate)}
+.idc-pb-plus{color:var(--srk-muted);font-size:16px;flex-shrink:0}
+.idc-pb-result{margin-left:auto;padding:6px 14px;background:#111111;color:white;border-radius:6px;font-size:12px;font-family:var(--font-mono);flex-shrink:0}
+.idc-skills-band{background:rgba(21,128,61,.04);border:1px solid rgba(21,128,61,.2);border-radius:10px;padding:14px 16px;margin:10px 0}
+.idc-skills-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#15803d;font-weight:700;margin-bottom:10px}
+.idc-panel{background:var(--srk-navy);color:white;border-radius:14px;padding:28px 32px;margin-top:24px;display:none}
+.idc-panel.visible{display:block;animation:fadeUp .3s ease}
+.idc-panel-icon{font-size:36px;margin-bottom:8px}
+.idc-panel-title{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:3px}
+.idc-panel-type{font-family:var(--font-mono);font-size:11px;color:#e8621a;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+.idc-panel-body{font-size:14px;color:rgba(255,255,255,.75);line-height:1.75}
+.idc-panel-chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.idc-panel-chip{padding:3px 10px;border-radius:20px;font-size:11px;font-family:var(--font-mono);border:1px solid}
+.idc-panel-chip.g{background:rgba(21,128,61,.15);border-color:rgba(21,128,61,.4);color:#86efac}
+.idc-panel-chip.a{background:rgba(232,98,26,.12);border-color:rgba(232,98,26,.35);color:#f4915c}
+.idc-panel-chip.b{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4);color:#93c5fd}
+.idc-panel-chip.r{background:rgba(185,28,28,.12);border-color:rgba(185,28,28,.35);color:#fca5a5}
+.idc-panel-chip.t{background:rgba(13,148,136,.12);border-color:rgba(13,148,136,.35);color:#5eead4}
+.idc-panel-chip.n{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.7)}
+.idc-panel-detail{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
+.idc-panel-close{float:right;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px;transition:all .2s;font-family:var(--font-body)}
+.idc-panel-close:hover{background:rgba(255,255,255,.15);color:white}
+.three-layer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin:24px 0}
+.tlc{background:white;border:1px solid var(--srk-border);border-radius:14px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.tlc-head{padding:18px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--srk-border)}
+.tlc-num{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:900;flex-shrink:0}
+.tlc-1 .tlc-num{background:rgba(13,148,136,.1);color:#0d9488;border:1px solid rgba(13,148,136,.3)}
+.tlc-2 .tlc-num{background:rgba(232,98,26,.12);color:#e8621a;border:1px solid rgba(232,98,26,.3)}
+.tlc-3 .tlc-num{background:rgba(37,99,235,.1);color:#2563eb;border:1px solid rgba(37,99,235,.3)}
+.tlc-head h3{font-size:15px;font-weight:700;color:var(--srk-navy)}
+.tlc-head .sub{font-size:12px;color:var(--srk-muted);margin-top:2px}
+.tlc-body{padding:16px 22px 20px}
+.tlc-body p{font-size:13.5px;color:var(--srk-muted);line-height:1.7;margin-bottom:12px}
+.tlc-items{list-style:none}
+.tlc-items li{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid #f1f5f9;font-size:13px}
+.tlc-items li:last-child{border-bottom:none}
+.tlc-items li strong{color:var(--srk-navy);display:block}
+.tlc-items li span{color:var(--srk-muted);font-size:12px}
+.tlc-note{margin-top:12px;padding:10px 14px;border-radius:8px;font-size:12px;line-height:1.6}
+.tlc-1 .tlc-note{background:rgba(13,148,136,.07);color:#0d9488;border:1px solid rgba(13,148,136,.15)}
+.tlc-2 .tlc-note{background:rgba(232,98,26,.07);color:#7a2800;border:1px solid rgba(232,98,26,.2)}
+.tlc-3 .tlc-note{background:rgba(37,99,235,.07);color:#1e3a8a;border:1px solid rgba(37,99,235,.18)}
+.pa-step{display:grid;grid-template-columns:48px 1fr;gap:0 18px;margin-bottom:0}
+.pa-num-col{display:flex;flex-direction:column;align-items:center}
+.pa-num{width:38px;height:38px;background:#111111;border:2px solid #e8621a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:#e8621a;flex-shrink:0}
+.pa-stem{flex:1;width:2px;background:var(--srk-border);margin:4px 0}
+.pa-content{padding:0 0 32px}
+.pa-label{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--srk-navy);margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pa-badge{font-size:11px;background:rgba(21,128,61,.1);color:#15803d;border:1px solid rgba(21,128,61,.25);padding:3px 10px;border-radius:20px;font-family:var(--font-body);font-weight:600}
+.pa-desc{font-size:13.5px;color:var(--srk-muted);line-height:1.75;margin-bottom:14px}
+.pa-code{background:var(--srk-navy);border-radius:10px;padding:16px 20px;font-family:var(--font-mono);font-size:12px;line-height:1.75;color:#c9d1d9;overflow-x:auto;margin-bottom:10px}
+.pa-code .cc{color:#6e7681}
+.pa-code .ck{color:var(--srk-gold-light)}
+.pa-code .cv{color:#a5d6ff}
+.pa-code .cs{color:#7ee787}
+.pa-code .cn{color:#ff9e64}
+.pa-code .cl{color:#e09b6e}
+.pa-token-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#f8fafc;border:1px solid var(--srk-border);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+.ptok{padding:4px 10px;border-radius:5px;font-size:12px;font-family:var(--font-mono);font-weight:500;border:1px solid}
+.ptok.sys{background:#fefce8;border-color:var(--srk-gold);color:#78350f}
+.ptok.rol{background:#f0fdfa;border-color:#0d9488;color:#0f4c45}
+.ptok.his{background:#fff7f3;border-color:#e8621a;color:#7a2800}
+.ptok.sk{background:#f0fdf4;border-color:#15803d;color:#14532d}
+.ptok.msg{background:#f8fafc;border-color:var(--srk-border);color:var(--srk-slate)}
+.ptok.tot{background:#fee2e2;border-color:#b91c1c;color:#b91c1c;font-weight:700}
+.ptok.eq{color:var(--srk-muted);font-size:16px;border:none;background:none}
+.pa-cache{display:flex;align-items:center;gap:10px;background:rgba(21,128,61,.07);border:1px solid rgba(21,128,61,.2);border-radius:8px;padding:10px 14px;font-size:13px;color:#15803d}
+.pa-flow-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr;gap:0;align-items:center;overflow-x:auto;min-width:700px}
+.pa-flow-node{padding:12px 8px;border-radius:10px;border:1px solid;text-align:center;font-size:12px;line-height:1.4}
+.pa-flow-arrow{text-align:center;font-size:20px;color:rgba(232,98,26,.6);padding:0 8px}
+.pfn-e{background:rgba(13,148,136,.07);border-color:rgba(13,148,136,.3);color:#0d9488}
+.pfn-g{background:rgba(185,28,28,.06);border-color:rgba(185,28,28,.25);color:#b91c1c}
+.pfn-a{background:rgba(200,168,75,.07);border-color:rgba(200,168,75,.3);color:#78350f}
+.pfn-c{background:rgba(37,99,235,.07);border-color:rgba(37,99,235,.25);color:#1e40af}
+.pfn-l{background:rgba(13,148,136,.05);border-color:rgba(13,148,136,.2);color:#0f766e}
+@media(max-width:900px){.three-layer-grid{grid-template-columns:1fr}}
+</style>
+
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div>
+      <div class="section-title">System Architecture</div>
+      <div class="section-desc">Interactive diagram · 3-layer breakdown · Prompt assembly explained — click any component for details</div>
+    </div>
+  </div>
+
+  <div class="arch-tabs">
+    <button class="arch-tab active" onclick="archTab('diagram',this)">📐 Interactive Diagram</button>
+    <button class="arch-tab" onclick="archTab('layers',this)">🏗️ 3-Layer Architecture</button>
+    <button class="arch-tab" onclick="archTab('prompt',this)">⚙️ Prompt Assembly</button>
+  </div>
+
+  <!-- TAB 1: DIAGRAM -->
+  <div class="arch-tabpane active" id="arch-diagram">
+    <div class="idc-legend">
+      <div class="idc-legend-item"><div class="idc-dot" style="background:rgba(13,148,136,.6)"></div>Layer 1 — Employee Interface</div>
+      <div class="idc-legend-item"><div class="idc-dot" style="background:rgba(232,98,26,.7)"></div>Layer 2 — SRK Control Plane</div>
+      <div class="idc-legend-item"><div class="idc-dot" style="background:rgba(37,99,235,.6)"></div>Layer 3 — Claude API &amp; Data</div>
+      <div class="idc-legend-item"><div class="idc-dot" style="background:rgba(185,28,28,.6)"></div>Security &amp; Guardrails</div>
+      <div class="idc-legend-item" style="margin-left:auto"><span style="color:var(--srk-gold);font-weight:600">👆 Click any component for details</span></div>
+    </div>
+    <div style="overflow-x:auto">
+    <div style="min-width:900px">
+
+      <!-- LAYER 1 -->
+      <div class="idc-band l1">
+        <div class="idc-band-title teal">👤 LAYER 1 — Employee Interface (what employees see and use)</div>
+        <div class="idc-row">
+          <div class="idc-node" onclick="archPanel('employee')"><div class="idc-node-icon">👤</div><div class="idc-node-label">SRK Employee</div><div class="idc-node-sub">100 users</div></div>
+          <div style="display:flex;align-items:center;color:rgba(232,98,26,.6);font-size:18px;padding:0 2px">→</div>
+          <div class="idc-node" onclick="archPanel('browser')"><div class="idc-node-icon">🌐</div><div class="idc-node-label">Web Browser</div><div class="idc-node-sub">Chrome / Edge</div></div>
+          <div style="display:flex;align-items:center;color:rgba(232,98,26,.6);font-size:18px;padding:0 2px">→</div>
+          <div class="idc-node" onclick="archPanel('chatui')"><div class="idc-node-icon">💬</div><div class="idc-node-label">Chat Interface</div><div class="idc-node-sub">SRK branded</div><div class="idc-node-badge nb-a">UI</div></div>
+          <div style="display:flex;align-items:center;color:rgba(232,98,26,.6);font-size:18px;padding:0 2px">→</div>
+          <div class="idc-node" onclick="archPanel('sso')"><div class="idc-node-icon">🔑</div><div class="idc-node-label">Azure Entra ID</div><div class="idc-node-sub">SSO Login</div><div class="idc-node-badge nb-g">✓</div></div>
+          <div style="flex:1"></div>
+          <div class="idc-node" onclick="archPanel('fileupload')"><div class="idc-node-icon">📎</div><div class="idc-node-label">File Upload</div><div class="idc-node-sub">PDF/DOCX/XLSX</div></div>
+          <div class="idc-node" onclick="archPanel('histpanel')"><div class="idc-node-icon">📜</div><div class="idc-node-label">Chat History</div><div class="idc-node-sub">Past sessions</div></div>
+          <div class="idc-node" onclick="archPanel('suggested')"><div class="idc-node-icon">💡</div><div class="idc-node-label">Suggested Prompts</div><div class="idc-node-sub">Quick-start</div></div>
+        </div>
+      </div>
+
+      <div class="idc-connector"><span class="arrow">↓</span><span>Authenticated HTTPS request: [employee identity + role + message + file?] → TLS encrypted</span><span class="arrow">↓</span></div>
+
+      <!-- LAYER 2 -->
+      <div class="idc-band l2">
+        <div class="idc-band-title gold">⚙️ LAYER 2 — SRK Application Layer — The Control Plane (Python / Flask on Azure App Service)</div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#b91c1c;margin-bottom:6px;font-weight:700">🛡️ Security &amp; Guardrail Layer — all requests pass through this first</div>
+        <div class="idc-sec-band">
+          <div class="idc-sec-item" onclick="archPanel('inputfilter')">🔍 Input Filter</div>
+          <div class="idc-sec-item" onclick="archPanel('outputfilter')">🚫 Output Filter</div>
+          <div class="idc-sec-item" onclick="archPanel('rolebac')">👥 Role-Based Access</div>
+          <div class="idc-sec-item" onclick="archPanel('ratelimit')">⏱️ Rate Limiter</div>
+          <div class="idc-sec-item" onclick="archPanel('promptinject')">🛡️ Injection Guard</div>
+          <div class="idc-sec-item" onclick="archPanel('spendcap')">💰 Spend Cap</div>
+        </div>
+        <div class="idc-row" style="margin:12px 0">
+          <div class="idc-node" onclick="archPanel('systemprompt')"><div class="idc-node-icon">📋</div><div class="idc-node-label">System Prompt</div><div class="idc-node-sub">SRK rules</div><div class="idc-node-badge nb-a">🔒</div></div>
+          <div class="idc-node" onclick="archPanel('roleinject')"><div class="idc-node-icon">🎭</div><div class="idc-node-label">Role Injector</div><div class="idc-node-sub">Per-request</div></div>
+          <div class="idc-node" onclick="archPanel('contextmgr')"><div class="idc-node-icon">🧠</div><div class="idc-node-label">Context Manager</div><div class="idc-node-sub">History + tokens</div></div>
+          <div class="idc-node" onclick="archPanel('assembler')"><div class="idc-node-icon">🔧</div><div class="idc-node-label">API Assembler</div><div class="idc-node-sub">Builds the call</div><div class="idc-node-badge nb-a">★</div></div>
+          <div class="idc-node" onclick="archPanel('logger')"><div class="idc-node-icon">📊</div><div class="idc-node-label">Logger</div><div class="idc-node-sub">All messages</div><div class="idc-node-badge nb-g">✓</div></div>
+          <div class="idc-node" onclick="archPanel('admindash')"><div class="idc-node-icon">🖥️</div><div class="idc-node-label">Admin Dashboard</div><div class="idc-node-sub">IT team only</div></div>
+        </div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#1e40af;margin-bottom:6px;font-weight:700">📦 Prompt Assembly — what gets sent to Claude on every message (click each block)</div>
+        <div class="idc-prompt-strip">
+          <div class="idc-pb sys" onclick="archPanel('systemprompt')">📋 SYSTEM_PROMPT<br><span style="font-size:10px;opacity:.7">~1,000 tok · CACHED</span></div>
+          <span class="idc-pb-plus">+</span>
+          <div class="idc-pb rol" onclick="archPanel('roleinject')">🎭 ROLE_CONTEXT<br><span style="font-size:10px;opacity:.7">~100 tok</span></div>
+          <span class="idc-pb-plus">+</span>
+          <div class="idc-pb his" onclick="archPanel('contextmgr')">🧠 HISTORY<br><span style="font-size:10px;opacity:.7">~500–5,000 tok</span></div>
+          <span class="idc-pb-plus">+</span>
+          <div class="idc-pb sk" onclick="archPanel('skillresults')">🔌 SKILL_RESULTS<br><span style="font-size:10px;opacity:.7">~0–2,000 tok</span></div>
+          <span class="idc-pb-plus">+</span>
+          <div class="idc-pb msg" onclick="archPanel('usermessage')">💬 USER_MESSAGE<br><span style="font-size:10px;opacity:.7">~50–500 tok</span></div>
+          <div class="idc-pb-result">→ Claude API</div>
+        </div>
+        <div class="idc-skills-band">
+          <div class="idc-skills-label">🔌 MCP Skills Layer — open standard, portable to any AI model</div>
+          <div class="idc-row">
+            <div class="idc-node" onclick="archPanel('skill-sharepoint')"><div class="idc-node-icon">📁</div><div class="idc-node-label">SharePoint Search</div><div class="idc-node-sub">search_sharepoint()</div><div class="idc-node-badge nb-g">MCP</div></div>
+            <div class="idc-node" onclick="archPanel('skill-project')"><div class="idc-node-icon">🏗️</div><div class="idc-node-label">Project Lookup</div><div class="idc-node-sub">lookup_project()</div><div class="idc-node-badge nb-g">MCP</div></div>
+            <div class="idc-node" onclick="archPanel('skill-library')"><div class="idc-node-icon">📚</div><div class="idc-node-label">Library Search</div><div class="idc-node-sub">search_library()</div><div class="idc-node-badge nb-g">MCP</div></div>
+            <div class="idc-node" onclick="archPanel('skill-report')"><div class="idc-node-icon">📄</div><div class="idc-node-label">Report Generator</div><div class="idc-node-sub">generate_report()</div><div class="idc-node-badge nb-a">Ph.2</div></div>
+            <div class="idc-node" onclick="archPanel('skill-calc')"><div class="idc-node-icon">📐</div><div class="idc-node-label">Calculations</div><div class="idc-node-sub">run_calculation()</div><div class="idc-node-badge nb-a">Ph.2</div></div>
+            <div class="idc-node" onclick="archPanel('skill-web')"><div class="idc-node-icon">🔎</div><div class="idc-node-label">Web Search</div><div class="idc-node-sub">Native API tool</div><div class="idc-node-badge nb-b">API</div></div>
+            <div class="idc-node" style="border-style:dashed;opacity:.55" onclick="archPanel('skill-future')"><div class="idc-node-icon">➕</div><div class="idc-node-label">Future Skill</div><div class="idc-node-sub">add anytime</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="idc-connector"><span class="arrow">↓</span><span>Assembled payload: {model, system[cached], role, history, skill_results, tools, message} → api.anthropic.com HTTPS</span><span class="arrow">↓</span></div>
+
+      <!-- LAYER 3 -->
+      <div class="idc-band l3">
+        <div class="idc-band-title blue">🤖 LAYER 3 — Claude API &amp; SRK Data Sources</div>
+        <div class="idc-row">
+          <div class="idc-node" onclick="archPanel('claudeapi')" style="border-color:rgba(37,99,235,.4);background:rgba(37,99,235,.03)"><div class="idc-node-icon">🤖</div><div class="idc-node-label">Claude Sonnet 4.6</div><div class="idc-node-sub">Primary model</div><div class="idc-node-badge nb-b">AI</div></div>
+          <div class="idc-node" onclick="archPanel('claudehaiku')"><div class="idc-node-icon">⚡</div><div class="idc-node-label">Claude Haiku 4.5</div><div class="idc-node-sub">Simple / fast</div></div>
+          <div style="flex:1"></div>
+          <div class="idc-node" onclick="archPanel('azuresql')"><div class="idc-node-icon">🗄️</div><div class="idc-node-label">Azure SQL DB</div><div class="idc-node-sub">Chat logs + audit</div><div class="idc-node-badge nb-g">SRK</div></div>
+          <div class="idc-node" onclick="archPanel('azureblob')"><div class="idc-node-icon">📦</div><div class="idc-node-label">Azure Blob</div><div class="idc-node-sub">Files + archive</div><div class="idc-node-badge nb-g">SRK</div></div>
+          <div class="idc-node" onclick="archPanel('sharepoint')"><div class="idc-node-icon">📁</div><div class="idc-node-label">SharePoint</div><div class="idc-node-sub">via skill only</div></div>
+          <div class="idc-node" onclick="archPanel('projectdb')"><div class="idc-node-icon">🏗️</div><div class="idc-node-label">Project DB</div><div class="idc-node-sub">via skill only</div></div>
+          <div class="idc-node" onclick="archPanel('librarydb')"><div class="idc-node-icon">📚</div><div class="idc-node-label">Library System</div><div class="idc-node-sub">Inmagic → Azure</div></div>
+        </div>
+        <div style="margin-top:14px;padding:10px 14px;background:rgba(255,255,255,.7);border:1px solid var(--srk-border);border-radius:8px;font-size:12px;color:var(--srk-muted)">
+          ⚠️ <strong style="color:var(--srk-slate)">Critical boundary:</strong> Claude never connects directly to SRK data sources. All data access is mediated by the skills layer — Claude only sees what a skill explicitly returns.
+        </div>
+      </div>
+
+      <div class="idc-connector" style="color:rgba(13,148,136,.7)"><span class="arrow" style="transform:rotate(180deg);display:inline-block">↓</span><span style="color:rgba(13,148,136,.7)">Response returns: Claude output → Output Filter → Conversation Logger (Azure SQL) → Employee chat window</span><span class="arrow" style="transform:rotate(180deg);display:inline-block">↓</span></div>
+
+    </div>
+    </div>
+
+    <!-- DETAIL PANEL -->
+    <div class="idc-panel" id="arch-detail-panel">
+      <button class="idc-panel-close" onclick="closeArchPanel()">✕ Close</button>
+      <div id="arch-panel-content"></div>
+    </div>
+  </div>
+
+  <!-- TAB 2: LAYERS -->
+  <div class="arch-tabpane" id="arch-layers">
+    <p style="color:var(--srk-muted);font-size:14px;margin-bottom:4px">The system is divided into three distinct layers. SRK's governance and control comes entirely from Layer 2 — the application layer that sits between employees and the Claude API.</p>
+    <div class="three-layer-grid">
+      <div class="tlc tlc-1">
+        <div class="tlc-head"><div class="tlc-num">1</div><div><h3>Employee Interface</h3><div class="sub">What 100 employees see every day</div></div></div>
+        <div class="tlc-body">
+          <p>Employees interact only with this layer. It looks like an internal SRK tool — not Claude.ai or ChatGPT. No model selection, no settings, no AI accounts required.</p>
+          <ul class="tlc-items">
+            <li><span>🌐</span><div><strong>Web browser access</strong><span>Any browser, any country, existing SRK SSO credentials</span></div></li>
+            <li><span>🔑</span><div><strong>Azure Entra ID SSO</strong><span>No new accounts or passwords needed</span></div></li>
+            <li><span>💬</span><div><strong>SRK-branded chat UI</strong><span>Custom interface, entirely SRK-designed and controlled</span></div></li>
+            <li><span>📎</span><div><strong>File upload</strong><span>Drag-and-drop PDF, DOCX, XLSX into the chat</span></div></li>
+            <li><span>📜</span><div><strong>Conversation history</strong><span>Searchable sidebar of all past conversations</span></div></li>
+            <li><span>💡</span><div><strong>Suggested prompts</strong><span>Pre-built starting points — zero blank-page anxiety</span></div></li>
+          </ul>
+          <div class="tlc-note">🎯 Design principle: if it requires training to use, simplify it further. Target: usable by any employee with zero AI experience.</div>
+        </div>
+      </div>
+      <div class="tlc tlc-2">
+        <div class="tlc-head"><div class="tlc-num">2</div><div><h3>SRK Control Plane</h3><div class="sub">Where all governance lives</div></div></div>
+        <div class="tlc-body">
+          <p>The most important layer. Every governance control, security rule, integration, and cost protection lives here. Employees never see it. Claude never bypasses it.</p>
+          <ul class="tlc-items">
+            <li><span>📋</span><div><strong>System prompt</strong><span>SRK's master rules: scope, restrictions, tone, edge cases</span></div></li>
+            <li><span>🎭</span><div><strong>Role injection</strong><span>Each API call includes the employee's role — different capabilities per level</span></div></li>
+            <li><span>🔍</span><div><strong>Input filtering</strong><span>Scans messages before the API call — blocks sensitive patterns</span></div></li>
+            <li><span>🚫</span><div><strong>Output filtering</strong><span>Reviews Claude's response before the employee sees it</span></div></li>
+            <li><span>🔌</span><div><strong>MCP Skills</strong><span>Python functions connecting AI to SharePoint, project DB, library</span></div></li>
+            <li><span>📊</span><div><strong>Conversation logger</strong><span>Every message in SRK's Azure SQL — full audit trail</span></div></li>
+            <li><span>💰</span><div><strong>Spend cap</strong><span>Monthly budget cap; alert at 80%; automatic stop at limit</span></div></li>
+          </ul>
+          <div class="tlc-note">🔐 Restrictions here are technically enforced — employees cannot bypass them, regardless of how they phrase their request.</div>
+        </div>
+      </div>
+      <div class="tlc tlc-3">
+        <div class="tlc-head"><div class="tlc-num">3</div><div><h3>Claude API &amp; Data</h3><div class="sub">The AI and SRK's underlying systems</div></div></div>
+        <div class="tlc-body">
+          <p>Claude processes the assembled request. SRK's data sources are here but never directly exposed — only accessible through the skills layer in Layer 2.</p>
+          <ul class="tlc-items">
+            <li><span>🤖</span><div><strong>Claude Sonnet 4.6</strong><span>Primary — 1M token context, best instruction following</span></div></li>
+            <li><span>⚡</span><div><strong>Claude Haiku 4.5</strong><span>Fast and cheap for simple queries — auto-routed by complexity</span></div></li>
+            <li><span>🗄️</span><div><strong>Azure SQL (SRK-owned)</strong><span>All logs and audit records — Anthropic has zero access</span></div></li>
+            <li><span>📦</span><div><strong>Azure Blob (SRK-owned)</strong><span>Files + auto-tiered chat archives (Hot → Cool → Archive)</span></div></li>
+            <li><span>📁</span><div><strong>SharePoint</strong><span>Read-only, via search_sharepoint() skill only</span></div></li>
+            <li><span>📚</span><div><strong>Library system</strong><span>Azure migration target — search_library() provides natural-language access</span></div></li>
+          </ul>
+          <div class="tlc-note">🌍 Anthropic retains API logs for 7 days only and never trains on them. SRK's database retains logs permanently under SRK's control.</div>
+        </div>
+      </div>
+    </div>
+    <h3>How a single message flows through all three layers</h3>
+    <div style="overflow-x:auto;margin-top:16px">
+    <div class="pa-flow-row">
+      <div class="pa-flow-node pfn-e"><strong>Employee</strong><br>"Find Cape Town borehole report"</div>
+      <div class="pa-flow-arrow">→</div>
+      <div class="pa-flow-node pfn-g"><strong>Input Filter</strong><br>Checks patterns ✓ Clean</div>
+      <div class="pa-flow-arrow">→</div>
+      <div class="pa-flow-node pfn-a"><strong>Assembler</strong><br>Adds prompt + role + history + skill result</div>
+      <div class="pa-flow-arrow">→</div>
+      <div class="pa-flow-node pfn-c"><strong>Claude API</strong><br>Generates response with library results</div>
+      <div class="pa-flow-arrow">←</div>
+      <div class="pa-flow-node pfn-l"><strong>Output Filter + Log</strong><br>Checked → SQL logged → shown to employee</div>
+    </div>
+    </div>
+    <div class="callout info" style="margin-top:24px">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body"><strong>Why this architecture gives SRK control that individual licences cannot</strong><p>With individual licences, employees send messages directly to Claude.ai or ChatGPT — there is no Layer 2. No system prompt. No input filter. No audit log. No role-based access. No spend cap. The entire governance capability comes from Layer 2, and Layer 2 only exists in the API model.</p></div>
+    </div>
+  </div>
+
+  <!-- TAB 3: PROMPT ASSEMBLY -->
+  <div class="arch-tabpane" id="arch-prompt">
+    <p style="color:var(--srk-muted);font-size:14px;margin-bottom:28px">Claude has no memory between sessions. Every API call must contain the complete context — assembled by the SRK application layer. Here is exactly what gets sent and why.</p>
+
+    <div class="pa-step">
+      <div class="pa-num-col"><div class="pa-num">1</div><div class="pa-stem"></div></div>
+      <div class="pa-content">
+        <div class="pa-label">📋 System Prompt <span class="pa-badge">Cached — 90% cheaper after first call</span></div>
+        <div class="pa-desc">The system prompt is SRK's master instruction document. It defines scope, restrictions, tone, and edge case handling. Sent with every message — but after the first call Anthropic caches it and charges only 10% of the normal input rate. This single optimisation saves over 90% of system prompt cost.</div>
+        <div class="pa-code">
+<span class="cc">// Simplified SRK system prompt structure</span>
+{
+  <span class="ck">"role"</span>: <span class="cs">"system"</span>,
+  <span class="ck">"content"</span>: <span class="cs">"You are SRK Consulting's internal AI assistant.
+
+SCOPE: Assist with SRK projects, company policies, and technical
+work in our domains (geotechnical, environmental, mining).
+General professional tasks also in scope.
+
+RESTRICTIONS:
+- Never discuss competitor strategies or pricing
+- Never provide legal or financial investment advice
+- Never share one client's information with another client
+- Always caveat uncertainty in technical judgements
+
+TONE: Professional, precise, direct. This is a business tool.
+
+EMPLOYEE CONTEXT: {ROLE_INJECTION_PLACEHOLDER}"</span>,
+  <span class="ck">"cache_control"</span>: { <span class="ck">"type"</span>: <span class="cs">"ephemeral"</span> }  <span class="cc">← enables 90% discount</span>
+}</div>
+        <div class="pa-cache">💰 100 users × 15 msgs/day × 1,000-token prompt = 1.5M tokens/day. Without caching: <strong>$4.50/day = $135/month</strong>. With caching: <strong>$13.50/month</strong>. Enable on day one.</div>
+      </div>
+    </div>
+
+    <div class="pa-step">
+      <div class="pa-num-col"><div class="pa-num">2</div><div class="pa-stem"></div></div>
+      <div class="pa-content">
+        <div class="pa-label">🎭 Role Injection</div>
+        <div class="pa-desc">After Azure Entra ID authentication, the application layer fetches the employee's profile and appends it to the context. This allows the same system prompt to behave differently for different roles — no separate prompts per department.</div>
+        <div class="pa-code">
+<span class="cc">// Injected per request — replaces {ROLE_INJECTION_PLACEHOLDER}</span>
+<span class="cl">EMPLOYEE_ROLE_CONTEXT</span> = {
+  <span class="ck">"employee_id"</span>: <span class="cs">"E4421"</span>, <span class="ck">"name"</span>: <span class="cs">"Dylan"</span>,
+  <span class="ck">"role"</span>: <span class="cs">"Senior Data Analyst"</span>, <span class="ck">"department"</span>: <span class="cs">"Data Services"</span>,
+  <span class="ck">"skills_access"</span>: [<span class="cs">"sharepoint"</span>, <span class="cs">"library"</span>, <span class="cs">"project_lookup"</span>, <span class="cs">"code_gen"</span>]
+}
+<span class="cc">// Junior analyst: ["sharepoint", "library"] only</span>
+<span class="cc">// Director: adds ["project_financials", "generate_report"]</span></div>
+      </div>
+    </div>
+
+    <div class="pa-step">
+      <div class="pa-num-col"><div class="pa-num">3</div><div class="pa-stem"></div></div>
+      <div class="pa-content">
+        <div class="pa-label">🧠 Conversation History</div>
+        <div class="pa-desc">Claude has no memory between API calls. The context manager retrieves this session's conversation history from Azure SQL and prepends it. As conversations grow long, older turns are automatically summarised to manage the token budget.</div>
+        <div class="pa-code">
+<span class="cc">// Previous turns retrieved from Azure SQL, included in messages array</span>
+[
+  { <span class="ck">"role"</span>: <span class="cs">"user"</span>,      <span class="ck">"content"</span>: <span class="cs">"Find Cape Town geo reports from 2023"</span> },
+  { <span class="ck">"role"</span>: <span class="cs">"assistant"</span>, <span class="ck">"content"</span>: <span class="cs">"I found 3 reports: CT-GEO-2023-01..."</span> },
+  { <span class="ck">"role"</span>: <span class="cs">"user"</span>,      <span class="ck">"content"</span>: <span class="cs">"Summarise the borehole findings from the second one"</span> }
+  <span class="cc">// ← Current message appended here by the assembler</span>
+]</div>
+      </div>
+    </div>
+
+    <div class="pa-step">
+      <div class="pa-num-col"><div class="pa-num">4</div><div class="pa-stem"></div></div>
+      <div class="pa-content">
+        <div class="pa-label">🔌 Skill Execution (if needed)</div>
+        <div class="pa-desc">If the query requires SRK data, the application layer calls the relevant skill before the API call. The result is injected into the context. Claude never directly accesses any SRK system — it only sees what the skill returns.</div>
+        <div class="pa-code">
+<span class="cc">// App layer detects intent → calls skill BEFORE the API call</span>
+skill_result = search_library(query=<span class="cs">"Cape Town borehole 2023"</span>)
+
+{ <span class="ck">"role"</span>: <span class="cs">"tool_result"</span>,
+  <span class="ck">"content"</span>: <span class="cs">"[{title:'CT-GEO-2023-01: Cape Town CBD Borehole Investigation',
+    author:'J.Smith', date:'2023-04-12', link:'https://...'}]"</span> }
+<span class="cc">// Claude uses this real data — it never had direct library access</span></div>
+      </div>
+    </div>
+
+    <div class="pa-step">
+      <div class="pa-num-col"><div class="pa-num">5</div><div class="pa-stem"></div></div>
+      <div class="pa-content">
+        <div class="pa-label">📦 Final Assembled API Call</div>
+        <div class="pa-desc">The API assembler combines everything into one well-formed payload sent to Anthropic. The total token count determines the cost. The system prompt component is cached, making it 90% cheaper.</div>
+        <div class="pa-code">
+<span class="cc">// Final payload sent to api.anthropic.com/v1/messages</span>
+{
+  <span class="ck">"model"</span>: <span class="cs">"claude-sonnet-4-6"</span>, <span class="ck">"max_tokens"</span>: <span class="cn">2048</span>,
+  <span class="ck">"system"</span>: [{ <span class="ck">"type"</span>: <span class="cs">"text"</span>, <span class="ck">"text"</span>: <span class="cs">"[SRK system prompt]"</span>,
+    <span class="ck">"cache_control"</span>: { <span class="ck">"type"</span>: <span class="cs">"ephemeral"</span> } }],
+  <span class="ck">"messages"</span>: [
+    { <span class="ck">"role"</span>: <span class="cs">"user"</span>,        <span class="ck">"content"</span>: <span class="cs">"[role injection context]"</span> },
+    { <span class="ck">"role"</span>: <span class="cs">"assistant"</span>,   <span class="ck">"content"</span>: <span class="cs">"[history turn 1]"</span> },
+    { <span class="ck">"role"</span>: <span class="cs">"user"</span>,        <span class="ck">"content"</span>: <span class="cs">"[history turn 2]"</span> },
+    { <span class="ck">"role"</span>: <span class="cs">"tool_result"</span>, <span class="ck">"content"</span>: <span class="cs">"[skill results if any]"</span> },
+    { <span class="ck">"role"</span>: <span class="cs">"user"</span>,        <span class="ck">"content"</span>: <span class="cs">"[current employee message]"</span> }
+  ],
+  <span class="ck">"tools"</span>: [<span class="cc">/* registered MCP skill definitions */</span>]
+}</div>
+        <div class="pa-token-row">
+          <span class="ptok sys">System ~1,000</span><span class="ptok eq">+</span>
+          <span class="ptok rol">Role ~100</span><span class="ptok eq">+</span>
+          <span class="ptok his">History ~1,500</span><span class="ptok eq">+</span>
+          <span class="ptok sk">Skills ~500</span><span class="ptok eq">+</span>
+          <span class="ptok msg">Message ~100</span><span class="ptok eq">=</span>
+          <span class="ptok tot">~3,200 input tokens</span>
+        </div>
+        <div class="pa-cache">💡 At $3/M input tokens with caching: ~3,200 tokens ≈ <strong>$0.007/message</strong>. Output (~600 tokens) ≈ <strong>$0.009</strong>. Total ~<strong>$0.016/message</strong>. At 15 msg/day × 70 users ≈ <strong>~$1,000/month</strong> at typical use.</div>
+      </div>
+    </div>
+
+    <div class="pa-step">
+      <div class="pa-num-col"><div class="pa-num">6</div></div>
+      <div class="pa-content">
+        <div class="pa-label">↩️ Response Processing &amp; Storage</div>
+        <div class="pa-desc">Claude's response returns to SRK's application layer. The output filter reviews it. The full exchange is logged to Azure SQL. The response is delivered to the employee's chat window.</div>
+        <div class="pa-code">
+response  = claude_api.call(payload)           <span class="cc">← Claude returns text</span>
+filtered  = output_filter.check(response)      <span class="cc">← SRK reviews response</span>
+azure_sql.log({ employee_id:<span class="cs">"E4421"</span>, timestamp:<span class="cs">"2026-04-21T14:32Z"</span>,
+  user_message:<span class="cs">"[what they asked]"</span>, ai_response:<span class="cs">"[Claude's answer]"</span>,
+  tokens_in:<span class="cn">3200</span>, tokens_out:<span class="cn">580</span>, cost_usd:<span class="cn">0.0182</span> })
+send_to_ui(filtered)                           <span class="cc">← Employee sees the answer</span></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+function archTab(id,btn){
+  document.querySelectorAll('.arch-tabpane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.arch-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('arch-'+id).classList.add('active');
+  btn.classList.add('active');
+  closeArchPanel();
+}
+const archComponents={
+  employee:{icon:'👤',title:'SRK Employee',type:'Layer 1 — User',body:'Any of SRK\'s 100 employees. Access via web browser using existing company credentials. No AI accounts, no subscriptions, no downloads required.',chips:[{l:'100 users',c:'t'},{l:'Any browser',c:'n'},{l:'Any country',c:'n'},{l:'No AI licence needed',c:'g'}],detail:'Employees never interact with Anthropic directly. Their identity is verified by Azure Entra ID before any AI call is made. Their role determines what capabilities they can access.'},
+  browser:{icon:'🌐',title:'Web Browser',type:'Layer 1 — Client',body:'Standard web browser (Chrome, Edge, Firefox). No application installation required. The chat interface is a responsive web app served over HTTPS.',chips:[{l:'Chrome/Edge/Firefox',c:'n'},{l:'HTTPS encrypted',c:'g'},{l:'No install',c:'g'},{l:'Mobile responsive',c:'b'}],detail:'Works on desktop, laptop, and tablet. Session maintained via secure cookies tied to the Azure Entra ID session token.'},
+  chatui:{icon:'💬',title:'SRK Chat Interface',type:'Layer 1 — UI (SRK-built)',body:'The SRK-branded chat interface built by SRK\'s team. Intentionally does not look like Claude.ai or ChatGPT. Employees see an internal SRK tool.',chips:[{l:'SRK branded',c:'a'},{l:'Flask + HTML',c:'n'},{l:'Azure hosted',c:'b'},{l:'Fully customisable',c:'g'}],detail:'Features: conversation history sidebar, file drag-and-drop, suggested prompts, thumbs up/down feedback, SRK colours. The design is entirely SRK\'s and can be changed anytime.'},
+  sso:{icon:'🔑',title:'Azure Entra ID SSO',type:'Layer 1 — Authentication',body:'Single Sign-On using SRK\'s existing Azure Entra ID. Employees log in with their normal company username and password — no new credentials.',chips:[{l:'Existing SRK licence',c:'g'},{l:'Zero additional cost',c:'g'},{l:'MFA supported',c:'b'},{l:'Role lookup',c:'a'}],detail:'After login, Entra ID provides the employee\'s profile including role and department. This is used by the Role Injector to set capabilities per request.'},
+  fileupload:{icon:'📎',title:'File Upload',type:'Layer 1 — Input',body:'Employees drag and drop documents into the chat. Files are converted and passed to Claude as context. Supported: PDF, DOCX, XLSX, TXT.',chips:[{l:'PDF',c:'t'},{l:'DOCX',c:'t'},{l:'XLSX',c:'t'},{l:'Max 50MB',c:'n'}],detail:'Files are temporarily stored in Azure Blob, passed to the API as document context, then retained per the data lifecycle policy.'},
+  histpanel:{icon:'📜',title:'Conversation History',type:'Layer 1 — UI Feature',body:'Left-panel sidebar showing all the employee\'s past conversations, searchable by keyword. Clicking a conversation resumes it with full context.',chips:[{l:'Azure SQL backed',c:'b'},{l:'Per-employee only',c:'n'},{l:'Searchable',c:'g'}],detail:'Each employee sees only their own history. Admins can access all conversations via the admin dashboard for compliance and audit.'},
+  suggested:{icon:'💡',title:'Suggested Prompts',type:'Layer 1 — UX',body:'Pre-built prompt suggestions shown to new or infrequent users. Removes blank-page anxiety and guides employees toward high-value use cases.',chips:[{l:'Zero training needed',c:'g'},{l:'Configurable by IT',c:'a'},{l:'Role-aware',c:'b'}],detail:'Examples: "Summarise this report", "Find similar projects", "Draft an email about Y". IT can update suggestions at any time via the admin dashboard.'},
+  inputfilter:{icon:'🔍',title:'Input Filter',type:'Layer 2 — Security Guardrail',body:'Scans every employee message before it reaches the Claude API. Detects sensitive data patterns and prompt injection attempts.',chips:[{l:'Pattern matching',c:'r'},{l:'PII detection',c:'r'},{l:'Injection guard',c:'r'},{l:'Pre-API',c:'a'}],detail:'Examples: client names combined with financial figures (flagged), attempts to override the system prompt. Flagged messages are logged and optionally blocked.'},
+  outputfilter:{icon:'🚫',title:'Output Filter',type:'Layer 2 — Security Guardrail',body:'Reviews Claude\'s response before it is displayed to the employee. Can block, modify, or flag responses that do not meet SRK\'s standards.',chips:[{l:'Post-API',c:'a'},{l:'Content check',c:'r'},{l:'Last line of defence',c:'r'}],detail:'Catches cases where Claude produces content outside the system prompt scope. SRK\'s IT team can define keyword rules and content categories that trigger review or blocking.'},
+  rolebac:{icon:'👥',title:'Role-Based Access Control',type:'Layer 2 — Security',body:'Controls which skills and capabilities each employee can access, based on their Entra ID role fetched at login.',chips:[{l:'Entra ID linked',c:'b'},{l:'Per-request enforcement',c:'a'},{l:'Skill gating',c:'g'}],detail:'Junior analyst: SharePoint + library. Project manager: adds project lookup. Director: adds financial data + report generation. Managed in admin dashboard, takes effect immediately.'},
+  ratelimit:{icon:'⏱️',title:'Rate Limiter',type:'Layer 2 — Protection',body:'Limits requests per employee per minute/hour to prevent runaway costs and ensure fair distribution of API quota.',chips:[{l:'Per-user limits',c:'n'},{l:'Queue overflow',c:'n'},{l:'Cost protection',c:'g'}],detail:'Default: 60 requests/hour per user, 200/day. Configurable in the admin dashboard.'},
+  promptinject:{icon:'🛡️',title:'Prompt Injection Guard',type:'Layer 2 — Security',body:'Detects attempts by employees to override the system prompt or manipulate the AI into ignoring SRK\'s rules.',chips:[{l:'Pattern detection',c:'r'},{l:'Jailbreak attempts',c:'r'},{l:'Log + block',c:'a'}],detail:'Common patterns: "ignore previous instructions", "you are now DAN". All such attempts are logged with employee ID and timestamp. Repeated attempts trigger an admin alert.'},
+  spendcap:{icon:'💰',title:'Spend Cap Enforcement',type:'Layer 2 — Cost Control',body:'Monthly API spend cap set in the Anthropic console. Alert sent at 80% of monthly budget. Automatic shutdown at 100%.',chips:[{l:'Anthropic console',c:'b'},{l:'80% alert',c:'a'},{l:'Auto-stop at limit',c:'r'},{l:'Daily dashboard',c:'g'}],detail:'Recommended cap for 100 users: $3,000/month. Alert at $2,400 gives time to investigate before hitting the limit.'},
+  systemprompt:{icon:'📋',title:'System Prompt',type:'Layer 2 — Governance Core',body:'The master instruction set defining everything SRK\'s AI assistant can and cannot do. Written by SRK. Sent with every message but cached at 90% discount. Employees cannot see or modify it.',chips:[{l:'~1,000 tokens',c:'a'},{l:'CACHED 90% off',c:'g'},{l:'Employee-invisible',c:'r'},{l:'Updatable anytime',c:'b'}],detail:'Defines: topic scope, restrictions, tone, what to do with sensitive requests, uncertainty handling, role-specific instructions. Can be updated without code changes.'},
+  roleinject:{icon:'🎭',title:'Role Injector',type:'Layer 2 — Personalisation',body:'Fetches the authenticated employee\'s profile from Entra ID and appends their role and permitted skills to the context before each API call.',chips:[{l:'Per-request',c:'a'},{l:'Entra ID sourced',c:'b'},{l:'~100 tokens',c:'n'}],detail:'Same system prompt behaves differently for different employees. Junior analyst gets scoped response to financial queries; director gets full details. No separate prompts needed per role.'},
+  contextmgr:{icon:'🧠',title:'Context Manager',type:'Layer 2 — Memory',body:'Retrieves the current session\'s conversation history from Azure SQL and prepends it to the API call. Manages the token budget.',chips:[{l:'Azure SQL backed',c:'b'},{l:'Token budgeting',c:'a'},{l:'Auto-summarise',c:'g'}],detail:'When a conversation exceeds ~15,000 tokens, the context manager automatically summarises older turns. This keeps token cost manageable while preserving important context.'},
+  assembler:{icon:'🔧',title:'API Assembler',type:'Layer 2 — Core',body:'Combines system prompt, role context, conversation history, skill results, and the employee\'s message into a single valid API call.',chips:[{l:'Final assembly',c:'a'},{l:'Cache headers',c:'g'},{l:'Tool definitions',c:'b'}],detail:'Also attaches MCP tool definitions (skill schemas) so Claude knows which skills are available. Manages the cache_control header to ensure prompt caching is always active.'},
+  logger:{icon:'📊',title:'Conversation Logger',type:'Layer 2 — Audit',body:'Logs every message exchange to SRK\'s own Azure SQL database — employee ID, timestamp, message, response, token counts, and cost.',chips:[{l:'Azure SQL',c:'b'},{l:'Per-message',c:'a'},{l:'SRK-owned',c:'g'},{l:'POPIA audit trail',c:'t'}],detail:'SRK\'s independent record, completely separate from Anthropic\'s 7-day API logs. SRK\'s copy is permanent unless SRK deletes it. Enables compliance audits, incident investigations, cost attribution.'},
+  admindash:{icon:'🖥️',title:'Admin Dashboard',type:'Layer 2 — Management',body:'Secure interface for the IT team. Shows live usage, monthly cost, per-employee message counts, flagged conversations, skill usage stats.',chips:[{l:'IT team only',c:'r'},{l:'Cost monitor',c:'a'},{l:'Usage analytics',c:'b'}],detail:'Key views: daily spend vs budget, top users by cost, flagged messages, skill invocation counts, feedback scores for system prompt improvement.'},
+  skillresults:{icon:'🔌',title:'Skill Results',type:'Layer 2 — Context Injection',body:'When a skill is invoked and returns data, the results are injected into the conversation context before Claude generates its response.',chips:[{l:'~0–2,000 tokens',c:'t'},{l:'Structured JSON',c:'n'},{l:'Pre-API inject',c:'a'}],detail:'This is how Claude appears to "know" about SRK\'s internal systems. It only sees what the skill explicitly returns. The skill is entirely written by SRK and controls exactly what data Claude can see.'},
+  usermessage:{icon:'💬',title:'User Message',type:'Layer 2 — Input',body:'The employee\'s typed message — after passing through the input filter. Typically the smallest component of the assembled call (20–500 tokens).',chips:[{l:'~20–500 tokens',c:'n'},{l:'Post input-filter',c:'g'}],detail:'Even though the user message is small, it drives the entire response. Claude has been given everything it needs: the rules (system prompt), who\'s asking (role), prior context (history), available data (skill results).'},
+  'skill-sharepoint':{icon:'📁',title:'SharePoint Search',type:'Layer 2 — MCP Skill (Phase 1)',body:'search_sharepoint(query) — searches SRK\'s SharePoint and returns document titles, abstracts, and links.',chips:[{l:'MCP open standard',c:'g'},{l:'Read-only',c:'t'},{l:'Phase 1',c:'a'}],detail:'Uses a dedicated service account with read-only permissions. Even if an employee asked Claude to access all SharePoint, it\'s technically impossible — the skill is the only access point.'},
+  'skill-project':{icon:'🏗️',title:'Project Lookup',type:'Layer 2 — MCP Skill (Phase 1)',body:'lookup_project(code) — queries the SRK project database and returns project name, status, team, and key dates.',chips:[{l:'MCP open standard',c:'g'},{l:'Role-gated',c:'r'},{l:'Phase 1',c:'a'}],detail:'Financial fields are only returned for director/PM roles. The skill enforces this at the query level regardless of what Claude requests.'},
+  'skill-library':{icon:'📚',title:'Library Search',type:'Layer 2 — MCP Skill (Phase 1)',body:'search_library(query) — searches the SRK Azure library management system. Returns report titles, authors, dates, and document links.',chips:[{l:'MCP open standard',c:'g'},{l:'Library migration',c:'a'},{l:'Phase 1',c:'a'}],detail:'Directly relevant to the Inmagic → Azure migration project. Every employee can search the catalogue with natural language once live.'},
+  'skill-report':{icon:'📄',title:'Report Generator',type:'Layer 2 — MCP Skill (Phase 2)',body:'generate_report(data, template) — accepts structured data from Claude and generates a downloadable DOCX, XLSX, or PDF using python-docx/openpyxl.',chips:[{l:'MCP open standard',c:'g'},{l:'python-docx',c:'n'},{l:'openpyxl',c:'n'},{l:'Phase 2',c:'a'}],detail:'Employee says "create a borehole summary as a Word doc" — Claude structures the content, the skill generates the file, the employee downloads it.'},
+  'skill-calc':{icon:'📐',title:'Calculations',type:'Layer 2 — MCP Skill (Phase 2)',body:'run_calculation(type, inputs) — domain-specific geotechnical and structural calculations using verified Python code.',chips:[{l:'MCP open standard',c:'g'},{l:'Verified formulas',c:'t'},{l:'Phase 2',c:'a'}],detail:'Claude describes what\'s needed, the skill runs it accurately, Claude explains the results — accuracy from code, explanation from Claude.'},
+  'skill-web':{icon:'🔎',title:'Web Search Tool',type:'Layer 2 — API Tool',body:'Anthropic\'s native web search tool, enabled via the tools parameter. Allows Claude to search the internet for current information.',chips:[{l:'Native API tool',c:'b'},{l:'Current info',c:'g'},{l:'Cited results',c:'t'}],detail:'Useful for: current standards, material prices, recent industry developments. The system prompt can restrict web search to specific domains or topics.'},
+  'skill-future':{icon:'➕',title:'Future Skills',type:'Layer 2 — Extensibility',body:'New skills can be added at any time without rebuilding the core application. Each skill is an independent Python function registered with the MCP router.',chips:[{l:'Open standard',c:'g'},{l:'1–3 days each',c:'a'},{l:'No downtime',c:'t'}],detail:'Planned: HR policy retrieval, billing lookup, borehole log processing (Excel → dotPLOT), code execution sandbox. Any SRK system with an API can be connected.'},
+  claudeapi:{icon:'🤖',title:'Claude Sonnet 4.6',type:'Layer 3 — Primary AI Model',body:'Anthropic\'s primary production model. Top-ranked for instruction following — follows SRK\'s system prompt restrictions more literally than any competitor. 1M token context window.',chips:[{l:'1M token context',c:'b'},{l:'Top coding ability',c:'g'},{l:'$3/$15 per 1M tok',c:'a'},{l:'7-day log retention',c:'t'}],detail:'Processes the assembled request and returns a response. Has no memory between sessions. Anthropic retains API logs for 7 days only and never trains on API data.'},
+  claudehaiku:{icon:'⚡',title:'Claude Haiku 4.5',type:'Layer 3 — Economy Model',body:'Used for simple, high-volume tasks where speed and cost matter more than depth. Auto-routed by the application layer based on query complexity.',chips:[{l:'$1/$5 per 1M tok',c:'g'},{l:'Fast',c:'t'},{l:'Simple queries',c:'n'}],detail:'Hybrid routing can reduce API costs by 20–40%. "What is the overtime policy?" → Haiku. "Analyse this 50-page geotechnical report" → Sonnet.'},
+  azuresql:{icon:'🗄️',title:'Azure SQL Database',type:'Layer 3 — SRK-owned Data',body:'SRK\'s own Azure SQL database. Stores all conversation logs, user sessions, skill records, and cost tracking. Anthropic has no access.',chips:[{l:'SRK-owned',c:'g'},{l:'Full audit trail',c:'t'},{l:'POPIA defensible',c:'a'},{l:'~$15–40/month',c:'n'}],detail:'Chat history for 100 users at typical use: ~2 GB/year. At Azure SQL rates this costs ~$0.20–0.50/month for chat history — negligible. The dominant cost is always API token spend.'},
+  azureblob:{icon:'📦',title:'Azure Blob Storage',type:'Layer 3 — SRK-owned Data',body:'Stores uploaded files and archived chat history. Automated lifecycle policy moves data through tiers as it ages: Hot → Cool → Cold → Archive.',chips:[{l:'Hot: $0.018/GB',c:'n'},{l:'Cool: $0.010/GB',c:'n'},{l:'Archive: $0.001/GB',c:'g'},{l:'Auto-tiering',c:'t'}],detail:'Lifecycle: uploaded files → Hot 30 days → Cool. Chat archives >90 days → Blob Cool. >1 year → Cold. >3 years → Archive.'},
+  sharepoint:{icon:'📁',title:'SharePoint',type:'Layer 3 — SRK Data Source',body:'SRK\'s company SharePoint. Accessed only via the search_sharepoint() skill — Claude never has direct SharePoint access.',chips:[{l:'Read-only',c:'t'},{l:'Via skill only',c:'a'},{l:'Microsoft 365',c:'b'}],detail:'The SharePoint skill uses a dedicated service account with read-only permissions. Even if an employee asked Claude to access all SharePoint, it is technically impossible.'},
+  projectdb:{icon:'🏗️',title:'Project Database',type:'Layer 3 — SRK Data Source',body:'SRK\'s project records database. Accessed only via the lookup_project() skill. Financial data gated by employee role.',chips:[{l:'Role-gated',c:'r'},{l:'Via skill only',c:'a'},{l:'Azure SQL',c:'b'}],detail:'Financial fields are only returned for director-level or PM roles. The skill enforces this at the query level.'},
+  librarydb:{icon:'📚',title:'Library Management System',type:'Layer 3 — SRK Data Source',body:'The SRK library system being migrated from Inmagic to Azure. The search_library() skill provides natural-language access to the catalogue.',chips:[{l:'Inmagic migration',c:'a'},{l:'Azure target',c:'b'},{l:'Via skill only',c:'n'}],detail:'One of the highest-value integrations — employees can ask "find all reports on Cape Town soil liquefaction" and receive catalogue entries with links, without knowing the library interface.'}
+};
+function archPanel(id){
+  const c=archComponents[id];
+  if(!c)return;
+  document.querySelectorAll('.idc-node').forEach(n=>n.classList.remove('selected'));
+  if(event&&event.currentTarget)event.currentTarget.classList.add('selected');
+  const chipsHTML=(c.chips||[]).map(ch=>`<span class="idc-panel-chip ${ch.c}">${ch.l}</span>`).join('');
+  document.getElementById('arch-panel-content').innerHTML=`
+    <div class="idc-panel-icon">${c.icon}</div>
+    <div class="idc-panel-title">${c.title}</div>
+    <div class="idc-panel-type">${c.type}</div>
+    <div class="idc-panel-body">${c.body}</div>
+    ${chipsHTML?`<div class="idc-panel-chips">${chipsHTML}</div>`:''}
+    ${c.detail?`<div class="idc-panel-detail">${c.detail}</div>`:''}
+  `;
+  const panel=document.getElementById('arch-detail-panel');
+  panel.classList.add('visible');
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function closeArchPanel(){
+  document.getElementById('arch-detail-panel').classList.remove('visible');
+  document.querySelectorAll('.idc-node').forEach(n=>n.classList.remove('selected'));
+}
+</script>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 02 SCORECARD -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-scorecard">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div>
+      <div class="section-title">Weighted Decision Scorecard</div>
+      <div class="section-desc">Claude API vs OpenAI GPT API — scored across criteria relevant to SRK. Governance & risk weighted highest.</div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">ℹ️</div>
+    <div class="callout-body">
+      <strong>How this works</strong>
+      <p>Each criterion is weighted by its importance to SRK's specific situation (total = 100%). Scores are 0–100 for each platform. Weighted score = score × weight. Governance and risk are given the highest weighting because an uncontrolled AI deployment creates legal and reputational exposure that no cost saving can justify.</p>
+    </div>
+  </div>
+
+  <div class="scorecard">
+    <div class="scorecard-header">
+      <span>Criterion (Weight)</span>
+      <span>Score Comparison</span>
+      <span class="col-claude">Claude</span>
+      <span class="col-openai">OpenAI</span>
+    </div>
+
+    <!-- GOVERNANCE & CONTROL -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">🔐 Governance &amp; Control</div>
+        <div class="score-weight">Weight: 25% — Most important for SRK</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:95%"></div></div>
+          <div class="bar-label-right">95</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:82%"></div></div>
+          <div class="bar-label-right">82</div>
+        </div>
+      </div>
+      <div class="score-pct claude">23.75</div>
+      <div class="score-pct openai">20.50</div>
+    </div>
+
+    <!-- DATA & PRIVACY -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">🛡️ Data Privacy &amp; POPIA</div>
+        <div class="score-weight">Weight: 20% — Cross-border data rules apply</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:88%"></div></div>
+          <div class="bar-label-right">88</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:82%"></div></div>
+          <div class="bar-label-right">82</div>
+        </div>
+      </div>
+      <div class="score-pct claude">17.60</div>
+      <div class="score-pct openai">16.40</div>
+    </div>
+
+    <!-- COST -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">💰 Cost Efficiency</div>
+        <div class="score-weight">Weight: 15% — Usage-based model advantage</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:88%"></div></div>
+          <div class="bar-label-right">88</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:78%"></div></div>
+          <div class="bar-label-right">78</div>
+        </div>
+      </div>
+      <div class="score-pct claude">13.20</div>
+      <div class="score-pct openai">11.70</div>
+    </div>
+
+    <!-- VENDOR LOCK-IN -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">🔓 Vendor Independence</div>
+        <div class="score-weight">Weight: 12% — Can we switch if needed?</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:90%"></div></div>
+          <div class="bar-label-right">90</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:60%"></div></div>
+          <div class="bar-label-right">60</div>
+        </div>
+      </div>
+      <div class="score-pct claude">10.80</div>
+      <div class="score-pct openai">7.20</div>
+    </div>
+
+    <!-- TECHNICAL CAPABILITY -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">🧠 Technical Capability</div>
+        <div class="score-weight">Weight: 10% — Model quality, context window</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:92%"></div></div>
+          <div class="bar-label-right">92</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:90%"></div></div>
+          <div class="bar-label-right">90</div>
+        </div>
+      </div>
+      <div class="score-pct claude">9.20</div>
+      <div class="score-pct openai">9.00</div>
+    </div>
+
+    <!-- AZURE INTEGRATION -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">☁️ Azure Integration</div>
+        <div class="score-weight">Weight: 8% — SRK is Azure-first</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:72%"></div></div>
+          <div class="bar-label-right">72</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:95%"></div></div>
+          <div class="bar-label-right">95</div>
+        </div>
+      </div>
+      <div class="score-pct claude">5.76</div>
+      <div class="score-pct openai">7.60</div>
+    </div>
+
+    <!-- GEOPOLITICAL STABILITY -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">🌍 Geopolitical Stability</div>
+        <div class="score-weight">Weight: 5% — Pentagon dispute is live risk</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:72%"></div></div>
+          <div class="bar-label-right">72</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:70%"></div></div>
+          <div class="bar-label-right">70</div>
+        </div>
+      </div>
+      <div class="score-pct claude">3.60</div>
+      <div class="score-pct openai">3.50</div>
+    </div>
+
+    <!-- EXTRA FEATURES -->
+    <div class="score-item">
+      <div>
+        <div class="score-label">✨ Extra Features</div>
+        <div class="score-weight">Weight: 5% — Audio, fine-tuning, ecosystem</div>
+      </div>
+      <div class="score-bars">
+        <div class="bar-row">
+          <div class="bar-label-left">Claude</div>
+          <div class="bar-track"><div class="bar-fill bar-claude" style="width:65%"></div></div>
+          <div class="bar-label-right">65</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label-left">OpenAI</div>
+          <div class="bar-track"><div class="bar-fill bar-openai" style="width:90%"></div></div>
+          <div class="bar-label-right">90</div>
+        </div>
+      </div>
+      <div class="score-pct claude">3.25</div>
+      <div class="score-pct openai">4.50</div>
+    </div>
+
+    <div class="scorecard-total">
+      <div class="total-label">Overall Weighted Score</div>
+      <div></div>
+      <div class="total-pct claude">87.2%</div>
+      <div class="total-pct openai">80.4%</div>
+    </div>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">✅</div>
+    <div class="callout-body">
+      <strong>Claude API wins on the criteria that matter most to SRK</strong>
+      <p>OpenAI scores higher only on Azure integration and extra features — neither of which is a blocker. Claude's decisive lead on governance, vendor independence, and cost efficiency reflects SRK's actual priorities. The 6.8-point gap widens significantly when you account for the geopolitical risk being shared: OpenAI signed the Pentagon deal that Claude refused, which may create its own long-term complications.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 03 GOVERNANCE -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-governance">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div>
+      <div class="section-title">Governance, Brand &amp; Client Data Control</div>
+      <div class="section-desc">What SRK must control — and how the API model enforces it technically</div>
+    </div>
+  </div>
+
+  <div class="callout danger">
+    <div class="callout-icon">🚨</div>
+    <div class="callout-body">
+      <strong>The Core Risk of Individual Licences: Zero Governance</strong>
+      <p>With 100 individual AI accounts, SRK is effectively operating 100 unmonitored AI pipelines. Any employee could share a confidential proposal, a client's financial data, or internal HR information with an external platform — and SRK would never know. If this data appeared in a competitor's model, or formed the basis of an AI hallucination in a client report, SRK would have no record and no defence.</p>
+    </div>
+  </div>
+
+  <h3>What the API model lets SRK control</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Control Mechanism</th>
+          <th>How It Works</th>
+          <th>What It Prevents</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>System Prompt</strong></td>
+          <td>A master instruction set defining scope, tone, and restrictions. Sent with every message. Employees cannot see or modify it.</td>
+          <td>Off-topic use, competitor research, personal tasks, inappropriate content</td>
+        </tr>
+        <tr>
+          <td><strong>Role-based access</strong></td>
+          <td>Application layer injects the authenticated employee's role into every API call. Junior analysts get different capabilities than directors.</td>
+          <td>Junior staff accessing sensitive skills or financial data above their clearance</td>
+        </tr>
+        <tr>
+          <td><strong>Input filtering</strong></td>
+          <td>Application can scan employee messages before they reach the API and block or flag sensitive patterns (client names, project codes, financial figures).</td>
+          <td>Accidental or deliberate data exfiltration via the chatbot</td>
+        </tr>
+        <tr>
+          <td><strong>Output filtering</strong></td>
+          <td>AI responses can be reviewed by the application layer before delivery. Certain content types can be blocked or flagged.</td>
+          <td>AI producing content that doesn't meet SRK's professional standards</td>
+        </tr>
+        <tr>
+          <td><strong>Conversation logging</strong></td>
+          <td>Every message, by every employee, is logged to SRK's own Azure SQL database — including timestamps, employee ID, and token cost.</td>
+          <td>Inability to investigate incidents, audit compliance, or monitor usage patterns</td>
+        </tr>
+        <tr>
+          <td><strong>Skills scoping</strong></td>
+          <td>Custom skills (SharePoint, project lookup) are written by SRK's team and only expose the data they are explicitly coded to return.</td>
+          <td>Employees using the AI to access data outside their authorised scope</td>
+        </tr>
+        <tr>
+          <td><strong>Spend cap</strong></td>
+          <td>Monthly spend cap set in the Anthropic console. Alert triggered at 80% of budget. Automatic cutoff at limit.</td>
+          <td>Runaway costs from unexpected heavy usage</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Brand &amp; image protection</h3>
+  <p>SRK's reputation as a professional consulting firm depends on the quality and accuracy of work delivered to clients. With individual AI licences, employees could use AI to draft client reports, proposals, or emails with no oversight — and those outputs might contain AI hallucinations, confidential cross-client data, or content that doesn't meet SRK's standards.</p>
+
+  <div class="card-grid card-grid-2">
+    <div class="card accent-red">
+      <div class="card-title">⚠️ Risk: Individual Licences</div>
+      <ul class="bullet-list">
+        <li>Employee drafts client report with AI — includes hallucinated references</li>
+        <li>Employee pastes Client A's data while working on Client B — cross-contamination</li>
+        <li>SRK has no record of what was generated, no ability to investigate</li>
+        <li>Client discovers AI-generated content that doesn't meet agreed standards</li>
+        <li>Potential lawsuit: SRK cannot demonstrate due diligence</li>
+      </ul>
+    </div>
+    <div class="card accent-green">
+      <div class="card-title">✅ Mitigated: API Model</div>
+      <ul class="bullet-list">
+        <li>System prompt defines SRK's tone, caveats, and professional standards</li>
+        <li>All conversations logged with employee ID and timestamp</li>
+        <li>Full audit trail available for any investigation within hours</li>
+        <li>Skills scoped so cross-client data contamination is structurally prevented</li>
+        <li>SRK can demonstrate governance and compliance to any client or regulator</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 04 RISK -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-risk">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div>
+      <div class="section-title">Risk Register</div>
+      <div class="section-desc">Implementation risks, independent licence risks, and mitigations</div>
+    </div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('risk','impl')">Implementation Risks</button>
+    <button class="tab-btn" onclick="switchTab('risk','licence')">Risks of Individual Licences</button>
+    <button class="tab-btn" onclick="switchTab('risk','ongoing')">Ongoing Platform Risks</button>
+  </div>
+
+  <div id="risk-impl" class="tab-pane active">
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr class="risk-row risk-med"><td><strong>Cost overrun</strong> — heavy usage spikes API bill</td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-amber">Medium</span></td><td>Set monthly cap in Anthropic console; alert at 80% threshold; usage dashboard visible to admin</td></tr>
+          <tr class="risk-row risk-med"><td><strong>Prompt injection</strong> — employee attempts to override system prompt</td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-amber">Medium</span></td><td>Application-layer input filtering; system prompt hardening; rate limiting on unusual patterns</td></tr>
+          <tr class="risk-row risk-low"><td><strong>Data leakage via chatbot</strong> — employee extracts sensitive info</td><td><span class="badge badge-green">Low (API model)</span></td><td><span class="badge badge-red">High</span></td><td>Scope skills narrowly; log all conversations; input/output filtering; role-based access controls</td></tr>
+          <tr class="risk-row risk-low"><td><strong>API downtime</strong> — Anthropic outage affects employees</td><td><span class="badge badge-green">Low</span></td><td><span class="badge badge-amber">Medium</span></td><td>Retry logic; graceful degradation message; monitor Anthropic status page; SLA review</td></tr>
+          <tr class="risk-row risk-low"><td><strong>Rate limit exceeded</strong> — 100 concurrent users at peak</td><td><span class="badge badge-amber">Medium (peak hours)</span></td><td><span class="badge badge-amber">Medium</span></td><td>Request rate limit increase from Anthropic before launch; queue non-urgent requests</td></tr>
+          <tr class="risk-row risk-low"><td><strong>Developer dependency</strong> — key dev leaves post-build</td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-amber">Medium</span></td><td>Document all components thoroughly; use standard Flask patterns; train second team member</td></tr>
+          <tr class="risk-row risk-low"><td><strong>Poor adoption</strong> — employees don't use the tool</td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-green">Low</span></td><td>Run pilot with enthusiastic early adopters; gather feedback before full rollout; simple onboarding</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="risk-licence" class="tab-pane">
+    <div class="callout danger">
+      <div class="callout-icon">🚨</div>
+      <div class="callout-body">
+        <strong>These risks are structural — they cannot be mitigated with individual licences. They require the API model.</strong>
+        <p>The risks below are not unlikely edge cases. They are near-certainties in any organisation with 100 employees using unmanaged AI tools over an extended period.</p>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Why It Cannot Be Mitigated with Licences</th></tr>
+        </thead>
+        <tbody>
+          <tr class="risk-row risk-high"><td><strong>Client data shared with external AI</strong></td><td><span class="badge badge-red">Certain over time</span></td><td><span class="badge badge-red">Critical</span></td><td>No technical control exists. Writing a policy doesn't prevent it. SRK has no audit trail if it happens.</td></tr>
+          <tr class="risk-row risk-high"><td><strong>AI-generated client deliverable with errors</strong></td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-red">High</span></td><td>No visibility into what's being generated. SRK cannot review or approve AI outputs before they reach clients.</td></tr>
+          <tr class="risk-row risk-high"><td><strong>POPIA cross-border transfer violation</strong></td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-red">High</span></td><td>Employee accounts on US-hosted platforms = personal data crossing SA borders without SRK's DPA. Max fine: R10 million.</td></tr>
+          <tr class="risk-row risk-high"><td><strong>Competitor intelligence leakage</strong></td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-red">Critical</span></td><td>Employee shares SRK's methodology, pricing model, or unreleased proposal in a personal AI session. No record exists.</td></tr>
+          <tr class="risk-row risk-high"><td><strong>Reputational incident (public-facing content)</strong></td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-red">Critical</span></td><td>Employee generates and publishes AI content in SRK's name. No pre-approval mechanism exists with individual licences.</td></tr>
+          <tr class="risk-row risk-high"><td><strong>Uncontrolled spend on subscriptions</strong></td><td><span class="badge badge-red">High</span></td><td><span class="badge badge-amber">Medium</span></td><td>$2,000/month paid regardless of usage. Cannot dial down if usage drops. No central visibility on who uses what.</td></tr>
+          <tr class="risk-row risk-high"><td><strong>Employee uses AI for personal tasks on company time</strong></td><td><span class="badge badge-red">Certain</span></td><td><span class="badge badge-amber">Medium</span></td><td>Personal accounts are personal. SRK has no basis to enforce work-only usage, and no way to monitor it.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="risk-ongoing" class="tab-pane">
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation / Exit Option</th></tr>
+        </thead>
+        <tbody>
+          <tr class="risk-row risk-low"><td><strong>Anthropic raises prices significantly</strong></td><td><span class="badge badge-green">Low (short term)</span></td><td><span class="badge badge-amber">Medium</span></td><td>MCP is an open standard — skills layer is portable. Can switch to OpenAI, AWS Bedrock, or Google Vertex AI without rebuilding skills.</td></tr>
+          <tr class="risk-row risk-med"><td><strong>Anthropic business instability / acquisition</strong></td><td><span class="badge badge-green">Low (valued at $800B)</span></td><td><span class="badge badge-amber">Medium</span></td><td>API is infrastructure-layer. MCP portability means SRK can switch models within weeks if needed. See Section 13.</td></tr>
+          <tr class="risk-row risk-med"><td><strong>New SA AI regulation imposes obligations</strong></td><td><span class="badge badge-amber">Likely by 2027/28</span></td><td><span class="badge badge-amber">Medium</span></td><td>API model already provides the audit trails, data controls, and governance documentation that future regulation will require.</td></tr>
+          <tr class="risk-row risk-low"><td><strong>Skills become outdated as Claude capabilities grow</strong></td><td><span class="badge badge-amber">Medium</span></td><td><span class="badge badge-green">Low</span></td><td>Skills are small Python functions. Adding new capabilities or updating existing ones is a minor development task.</td></tr>
+          <tr class="risk-row risk-low"><td><strong>Additional skills require significant dev cost</strong></td><td><span class="badge badge-green">Low</span></td><td><span class="badge badge-green">Low</span></td><td>Each new skill (e.g. geotechnical calculation tool) typically takes 1–3 days to develop. Budget accordingly per skill. See Section 10.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 05 COST -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-cost">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div>
+      <div class="section-title">Cost Model — 100 Employees</div>
+      <div class="section-desc">API costs, Azure infrastructure, ongoing management, and additional skills</div>
+    </div>
+  </div>
+
+  <h3>Monthly API cost — three scenarios</h3>
+  <p style="color:var(--srk-muted); font-size:13px;">Based on Claude Sonnet 4.6, 80% prompt cache hit rate, 1,000-token system prompt. All figures include ~$75/month Azure app hosting.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th>Active Users</th><th>Msgs/day</th><th>Est. Monthly API Cost</th><th>Per Employee</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Light use</strong></td><td>50</td><td>5</td><td>$150 – $400</td><td>$3 – $8</td></tr>
+        <tr><td><strong>Typical use (baseline)</strong></td><td>70</td><td>15</td><td>$800 – $1,600</td><td>$11 – $23</td></tr>
+        <tr><td><strong>Heavy use</strong></td><td>100</td><td>30</td><td>$2,500 – $5,000</td><td>$25 – $50</td></tr>
+        <tr><td><strong>100 Pro licences (comparison)</strong></td><td>100</td><td>Capped</td><td><strong>$2,000 fixed</strong></td><td><strong>$20 — always</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout gold">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <strong>The usage-based advantage at 100 users</strong>
+      <p>If only 40 of your 100 employees actively use the chatbot in a given month, you pay for 40 users — not 100. Pro licences cost $2,000 regardless. At typical use, the API is <strong>20–60% cheaper</strong> than individual licences, and at light use it is <strong>70–80% cheaper</strong>. At heavy use the costs converge — but the API still provides full governance and no message caps.</p>
+    </div>
+  </div>
+
+
+  <!-- ══ DYNAMIC COST CALCULATOR ══ -->
+  <h3>Interactive Cost Calculator</h3>
+  <p style="color:var(--srk-muted);font-size:13px;margin-bottom:20px;">Drag the slider and select usage intensity. Costs update in real time across all three Claude models.</p>
+
+  <div id="calc-wrap" style="background:white;border:1px solid var(--srk-border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:24px;">
+
+    <!-- CONTROLS -->
+    <div style="padding:28px 32px 24px;border-bottom:1px solid var(--srk-border);background:#fafafa;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:20px;">
+        <!-- Users -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+            <label style="font-weight:700;font-size:14px;color:#111;">Active Users</label>
+            <span id="calc-users-val" style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:#e8621a;">100</span>
+          </div>
+          <input type="range" id="calc-users" min="50" max="150" value="100" step="5"
+            style="width:100%;accent-color:#e8621a;height:6px;cursor:pointer;" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--srk-muted);margin-top:5px;">
+            <span>50</span><span>100</span><span>150</span>
+          </div>
+        </div>
+        <!-- Usage -->
+        <div>
+          <div style="margin-bottom:10px;font-weight:700;font-size:14px;color:#111;">Usage Intensity</div>
+          <div style="display:flex;gap:8px;">
+            <button id="btn-low" onclick="setCalcUsage('low')" style="flex:1;padding:10px 4px;border-radius:8px;border:2px solid #e8621a;background:#e8621a;color:white;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;">&#127804; Low</button>
+            <button id="btn-med" onclick="setCalcUsage('med')" style="flex:1;padding:10px 4px;border-radius:8px;border:2px solid #e5e5e5;background:white;color:#111;font-weight:600;font-size:13px;cursor:pointer;transition:all .2s;">&#9889; Medium</button>
+            <button id="btn-high" onclick="setCalcUsage('high')" style="flex:1;padding:10px 4px;border-radius:8px;border:2px solid #e5e5e5;background:white;color:#111;font-weight:600;font-size:13px;cursor:pointer;transition:all .2s;">&#128293; High</button>
+          </div>
+          <div id="calc-usage-desc" style="font-size:12px;color:var(--srk-muted);margin-top:8px;font-style:italic;">~5 messages/day per user</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:11px;background:#f1f5f9;border:1px solid #e2e8f0;padding:3px 10px;border-radius:20px;color:var(--srk-muted);">Avg input: ~2,500 tok/msg</span>
+        <span style="font-size:11px;background:#f1f5f9;border:1px solid #e2e8f0;padding:3px 10px;border-radius:20px;color:var(--srk-muted);">Avg output: ~600 tok/msg</span>
+        <span style="font-size:11px;background:#f0fdf4;border:1px solid #86efac;padding:3px 10px;border-radius:20px;color:#15803d;">Prompt caching ON (90% saving)</span>
+        <span style="font-size:11px;background:#f1f5f9;border:1px solid #e2e8f0;padding:3px 10px;border-radius:20px;color:var(--srk-muted);">22 working days/month</span>
+      </div>
+    </div>
+
+    <!-- MODEL CARDS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
+      <!-- Sonnet -->
+      <div style="padding:24px;border-right:1px solid var(--srk-border);background:#fff8f5;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+          <span style="font-size:18px;">&#129302;</span>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;font-size:13px;color:#111;">Claude Sonnet 4.6</div>
+            <div style="font-size:10px;color:var(--srk-muted);font-family:var(--font-mono);">$3.00/$15.00 per 1M tok</div>
+          </div>
+          <span style="background:#e8621a;color:white;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;">RECOMMENDED</span>
+        </div>
+        <div style="font-size:11px;color:var(--srk-muted);">Monthly API cost</div>
+        <div id="sonnet-monthly" style="font-family:var(--font-display);font-size:30px;font-weight:900;color:#e8621a;line-height:1.1;">$0</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
+          <div style="background:#f8fafc;border-radius:8px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:var(--srk-muted);">Per user</div>
+            <div id="sonnet-per-user" style="font-weight:700;font-size:15px;color:#111;">$0</div>
+          </div>
+          <div style="background:#f8fafc;border-radius:8px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:var(--srk-muted);">Per message</div>
+            <div id="sonnet-per-msg" style="font-weight:700;font-size:15px;color:#111;">$0</div>
+          </div>
+        </div>
+      </div>
+      <!-- Haiku -->
+      <div style="padding:24px;border-right:1px solid var(--srk-border);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+          <span style="font-size:18px;">&#9889;</span>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;font-size:13px;color:#111;">Claude Haiku 4.5</div>
+            <div style="font-size:10px;color:var(--srk-muted);font-family:var(--font-mono);">$1.00/$5.00 per 1M tok</div>
+          </div>
+          <span style="background:#15803d;color:white;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;">CHEAPEST</span>
+        </div>
+        <div style="font-size:11px;color:var(--srk-muted);">Monthly API cost</div>
+        <div id="haiku-monthly" style="font-family:var(--font-display);font-size:30px;font-weight:900;color:#15803d;line-height:1.1;">$0</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
+          <div style="background:#f8fafc;border-radius:8px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:var(--srk-muted);">Per user</div>
+            <div id="haiku-per-user" style="font-weight:700;font-size:15px;color:#111;">$0</div>
+          </div>
+          <div style="background:#f8fafc;border-radius:8px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:var(--srk-muted);">Per message</div>
+            <div id="haiku-per-msg" style="font-weight:700;font-size:15px;color:#111;">$0</div>
+          </div>
+        </div>
+      </div>
+      <!-- Opus -->
+      <div style="padding:24px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+          <span style="font-size:18px;">&#129504;</span>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;font-size:13px;color:#111;">Claude Opus 4.6</div>
+            <div style="font-size:10px;color:var(--srk-muted);font-family:var(--font-mono);">$15.00/$75.00 per 1M tok</div>
+          </div>
+          <span style="background:#1e40af;color:white;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;">MOST CAPABLE</span>
+        </div>
+        <div style="font-size:11px;color:var(--srk-muted);">Monthly API cost</div>
+        <div id="opus-monthly" style="font-family:var(--font-display);font-size:30px;font-weight:900;color:#1e40af;line-height:1.1;">$0</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
+          <div style="background:#f8fafc;border-radius:8px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:var(--srk-muted);">Per user</div>
+            <div id="opus-per-user" style="font-weight:700;font-size:15px;color:#111;">$0</div>
+          </div>
+          <div style="background:#f8fafc;border-radius:8px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:var(--srk-muted);">Per message</div>
+            <div id="opus-per-msg" style="font-weight:700;font-size:15px;color:#111;">$0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARISON + TOTAL -->
+    <div style="padding:24px 32px;border-top:1px solid var(--srk-border);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px;">
+        <!-- vs Pro -->
+        <div style="background:#fafafa;border:1px solid var(--srk-border);border-radius:12px;padding:18px;">
+          <div style="font-weight:700;font-size:13px;color:#111;margin-bottom:10px;">vs Individual Pro Licences</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:13px;">
+            <span style="color:var(--srk-muted);">Pro licences (<span id="cmp-users">100</span> x $20)</span>
+            <span id="cmp-pro" style="font-family:var(--font-mono);font-weight:700;color:#b91c1c;">$2,000</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:13px;">
+            <span style="color:var(--srk-muted);">Sonnet API (your settings)</span>
+            <span id="cmp-api" style="font-family:var(--font-mono);font-weight:700;color:#e8621a;">$0</span>
+          </div>
+          <div style="border-top:1px solid var(--srk-border);padding-top:10px;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;font-size:13px;color:#111;">Monthly saving</span>
+            <span id="cmp-saving" style="font-family:var(--font-mono);font-weight:900;font-size:17px;color:#15803d;">$0</span>
+          </div>
+          <div id="cmp-saving-pct" style="font-size:11px;color:#15803d;margin-top:4px;text-align:right;"></div>
+        </div>
+        <!-- Azure -->
+        <div style="background:#fafafa;border:1px solid var(--srk-border);border-radius:12px;padding:18px;">
+          <div style="font-weight:700;font-size:13px;color:#111;margin-bottom:10px;">Azure Infrastructure (fixed/month)</div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px;"><span style="color:var(--srk-muted);">App Service (B2/B3)</span><span style="font-family:var(--font-mono);">$85</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px;"><span style="color:var(--srk-muted);">Azure SQL (2 vCores)</span><span style="font-family:var(--font-mono);">$28</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px;"><span style="color:var(--srk-muted);">Blob Storage</span><span style="font-family:var(--font-mono);">$12</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px;"><span style="color:var(--srk-muted);">Entra ID (existing)</span><span style="font-family:var(--font-mono);color:#15803d;">$0</span></div>
+          <div style="border-top:1px solid var(--srk-border);padding-top:8px;margin-top:8px;display:flex;justify-content:space-between;font-weight:700;font-size:13px;"><span>Azure subtotal</span><span style="font-family:var(--font-mono);">$125/mo</span></div>
+        </div>
+      </div>
+      <!-- Total banner -->
+      <div style="background:linear-gradient(135deg,#111 0%,#222 100%);border-radius:12px;padding:20px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+        <div><div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Total Monthly (Sonnet + Azure)</div><div id="total-monthly" style="font-family:var(--font-display);font-size:34px;font-weight:900;color:#e8621a;">$0</div></div>
+        <div style="width:1px;height:50px;background:rgba(255,255,255,.15);flex-shrink:0;"></div>
+        <div><div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Annualised</div><div id="total-annual" style="font-family:var(--font-display);font-size:34px;font-weight:900;color:white;">$0</div></div>
+        <div style="width:1px;height:50px;background:rgba(255,255,255,.15);flex-shrink:0;"></div>
+        <div><div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Annual saving vs Pro Licences</div><div id="total-vs-pro" style="font-family:var(--font-display);font-size:34px;font-weight:900;color:#86efac;">$0</div></div>
+        <div style="margin-left:auto;text-align:right;"><div id="total-msgs" style="font-size:12px;color:rgba(255,255,255,.5);"></div><div id="total-tokens" style="font-size:12px;color:rgba(255,255,255,.4);margin-top:2px;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  var _calcUsage = 'low';
+  var _usageProfiles = {
+    low:  { msgs: 5  },
+    med:  { msgs: 15 },
+    high: { msgs: 30 }
+  };
+  var _usageLabels = {
+    low:  '~5 messages/day per user — occasional use',
+    med:  '~15 messages/day per user — regular daily use',
+    high: '~30 messages/day per user — heavy power use'
+  };
+  var _pricing = {
+    sonnet: { inp: 3.00,  out: 15.00, cached: 0.30  },
+    haiku:  { inp: 1.00,  out: 5.00,  cached: 0.10  },
+    opus:   { inp: 15.00, out: 75.00, cached: 1.50  }
+  };
+  var _DAYS = 22, _INP = 2500, _OUT = 600, _SYS = 1000, _CACHE = 0.90, _AZURE = 125;
+
+  function setCalcUsage(level) {
+    _calcUsage = level;
+    ['low','med','high'].forEach(function(l) {
+      var b = document.getElementById('btn-' + l);
+      if (l === level) { b.style.background='#e8621a'; b.style.border='2px solid #e8621a'; b.style.color='white'; }
+      else             { b.style.background='white';   b.style.border='2px solid #e5e5e5'; b.style.color='#111'; }
+    });
+    document.getElementById('calc-usage-desc').textContent = _usageLabels[level];
+    calcUpdate();
+  }
+
+  function _monthlyApi(model, users, mpd) {
+    var p = _pricing[model];
+    var msgs = users * mpd * _DAYS;
+    var regInp  = (_INP - _SYS) * msgs;
+    var cacInp  = _SYS * _CACHE * msgs;
+    var uncInp  = _SYS * (1 - _CACHE) * msgs;
+    return ((regInp + uncInp) / 1e6 * p.inp) + (cacInp / 1e6 * p.cached) + (_OUT * msgs / 1e6 * p.out);
+  }
+
+  function _f(n) {
+    if (n >= 10000) return "$" + Math.round(n).toLocaleString();
+    if (n >= 1000)  return "$" + Math.round(n).toLocaleString();
+    if (n >= 100)   return "$" + Math.round(n);
+    if (n >= 10)    return "$" + n.toFixed(1);
+    return "$" + n.toFixed(2);
+  }
+
+  function calcUpdate() {
+    var users = parseInt(document.getElementById('calc-users').value);
+    var mpd   = _usageProfiles[_calcUsage].msgs;
+    document.getElementById('calc-users-val').textContent = users;
+
+    var costs = {};
+    ['sonnet','haiku','opus'].forEach(function(m) {
+      var mo = _monthlyApi(m, users, mpd);
+      costs[m] = mo;
+      var msgs = users * mpd * _DAYS;
+      document.getElementById(m+'-monthly').textContent  = _f(mo);
+      document.getElementById(m+'-per-user').textContent = _f(mo / users);
+      document.getElementById(m+'-per-msg').textContent  = '$' + (mo / msgs).toFixed(3);
+    });
+
+    var proMo = users * 20;
+    var saving = proMo - costs.sonnet;
+    document.getElementById('cmp-users').textContent   = users;
+    document.getElementById('cmp-pro').textContent     = _f(proMo);
+    document.getElementById('cmp-api').textContent     = _f(costs.sonnet);
+    document.getElementById('cmp-saving').textContent  = saving >= 0 ? _f(saving) : '-' + _f(Math.abs(saving));
+    document.getElementById('cmp-saving').style.color  = saving >= 0 ? '#15803d' : '#b91c1c';
+    document.getElementById('cmp-saving-pct').textContent = saving >= 0
+      ? (saving/proMo*100).toFixed(0) + '% cheaper than Pro licences'
+      : 'API costs more at this usage — governance still justifies it';
+    document.getElementById('cmp-saving-pct').style.color = saving >= 0 ? '#15803d' : '#b91c1c';
+
+    var totalMo  = costs.sonnet + _AZURE;
+    var totalAnn = totalMo * 12;
+    var proAnn   = proMo * 12;
+    var annSave  = proAnn - totalAnn;
+    var totalMsgs = users * mpd * _DAYS;
+
+    document.getElementById('total-monthly').textContent = _f(totalMo);
+    document.getElementById('total-annual').textContent  = _f(totalAnn);
+    document.getElementById('total-vs-pro').textContent  = annSave >= 0 ? _f(annSave) : '-' + _f(Math.abs(annSave));
+    document.getElementById('total-vs-pro').style.color  = annSave >= 0 ? '#86efac' : '#fca5a5';
+    document.getElementById('total-msgs').textContent    = totalMsgs.toLocaleString() + ' messages/month';
+    document.getElementById('total-tokens').textContent  = Math.round(((_INP+_OUT)*totalMsgs)/1e6) + 'M tokens/month';
+  }
+
+  calcUpdate();
+  </script>
+
+
+
+  <h3>Additional costs to budget</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Cost Item</th><th>Est. Monthly</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Claude API (typical use)</strong></td><td>$800 – $1,600</td><td>Usage-based. Enable prompt caching to reduce by ~60% on the system prompt component.</td></tr>
+        <tr><td><strong>Azure App Service (web app)</strong></td><td>$50 – $120</td><td>B2 or B3 tier for up to 100 users. Scale up if needed.</td></tr>
+        <tr><td><strong>Azure SQL Database (chat logs)</strong></td><td>$15 – $40</td><td>General Purpose, 2 vCores. Stores all conversation history and audit logs.</td></tr>
+        <tr><td><strong>Azure Blob Storage (file uploads)</strong></td><td>$5 – $20</td><td>Hot tier for recent files; lifecycle policy moves older files to Cool (50% cheaper) after 30 days.</td></tr>
+        <tr><td><strong>Azure Entra ID</strong></td><td>$0</td><td>SSO integration uses existing SRK licence — no additional cost.</td></tr>
+        <tr><td><strong>Platform management (ongoing)</strong></td><td>~20–30% of one FTE</td><td>Monitoring usage, updating system prompt, adding skills, reviewing logs. Can be part of existing IT/data team role.</td></tr>
+        <tr><td><strong>New skills development</strong></td><td>1–3 days per skill</td><td>One-off cost per skill (e.g. SharePoint search, geotechnical calculation). Not monthly recurring.</td></tr>
+        <tr><td><strong>Annual review / updates</strong></td><td>~1 week/year</td><td>Reviewing system prompt, updating model version, adding features based on user feedback.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">💾</div>
+    <div class="callout-body">
+      <strong>Are Azure costs accurate?</strong>
+      <p>Yes, for the scale described. Azure SQL at General Purpose 2 vCores handles thousands of concurrent read/writes comfortably. Storage costs for chat history are minimal — 100 users generating 15 messages/day produces roughly <strong>5–15 MB of text per day</strong>, or 1.5–4.5 GB per year. At Azure's standard rate of $0.115/GB/month for SQL storage, this costs approximately <strong>$0.20–$0.50/month</strong> for the chat history alone — negligible. Blob storage for file uploads scales similarly. The dominant cost is always the API token spend, not storage.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 06 TOKENS -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-tokens">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div>
+      <div class="section-title">What is a Token?</div>
+      <div class="section-desc">Plain-language explanation of how AI pricing works — with examples</div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">📖</div>
+    <div class="callout-body">
+      <strong>A token is not a word — it's a chunk of text</strong>
+      <p>AI models don't read words — they read tokens. A token is roughly 3–4 characters of English text. Short common words are one token; longer or unusual words may be two or more. Numbers, spaces, and punctuation each consume tokens. On average, <strong>1,000 tokens ≈ 750 words</strong> of English text.</p>
+    </div>
+  </div>
+
+  <div class="token-demo">
+    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,.4); margin-bottom: 14px;">Example: how this sentence is tokenised</div>
+    <div class="token-sentence">
+      <span class="token-chip t1">SRK</span>
+      <span class="token-chip t2"> Consult</span>
+      <span class="token-chip t3">ing</span>
+      <span class="token-chip t4"> uses</span>
+      <span class="token-chip t5"> Claude</span>
+      <span class="token-chip t6"> API</span>
+      <span class="token-chip t7"> for</span>
+      <span class="token-chip t1"> geo</span>
+      <span class="token-chip t2">tech</span>
+      <span class="token-chip t3">nical</span>
+      <span class="token-chip t4"> work</span>
+      <span class="token-chip t5">.</span>
+    </div>
+    <div class="token-legend">
+      <span>↑ Each coloured block = one token</span>
+      <span>Notice: "Consulting" splits into "Consult" + "ing"</span>
+      <span>"geotechnical" splits into 3 tokens</span>
+      <span>Full stop = its own token</span>
+    </div>
+  </div>
+
+  <h3>How tokens are consumed in a chatbot conversation</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Approx. Tokens</th><th>Billed As</th><th>Cost (Sonnet 4.6)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>System prompt</strong> (SRK rules)</td><td>500–1,500</td><td>Input (cached after 1st call → 90% cheaper)</td><td>~$0.0003–0.001 per message (cached)</td></tr>
+        <tr><td><strong>Conversation history</strong> (context window)</td><td>500–5,000</td><td>Input (grows with conversation length)</td><td>~$0.0015–0.015 per message</td></tr>
+        <tr><td><strong>Employee's message</strong></td><td>20–200</td><td>Input</td><td>~$0.00006–0.0006</td></tr>
+        <tr><td><strong>Claude's response</strong></td><td>100–800</td><td>Output (5× more expensive than input)</td><td>~$0.0015–0.012</td></tr>
+        <tr><td><strong>Typical full message round-trip</strong></td><td>~1,500 total</td><td>Input + Output blended</td><td><strong>$0.01–0.02 per message</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>What costs more than you might expect</h3>
+  <div class="card-grid card-grid-2">
+    <div class="card accent-amber">
+      <div class="card-title">📄 Uploading a large document</div>
+      <div class="card-body">A 20-page PDF might be 15,000–25,000 tokens. At $3/million input tokens, that's $0.05–$0.08 per upload. Still cheap — but upload of entire document libraries would add up. Use skills to search and retrieve only relevant sections rather than uploading whole documents.</div>
+    </div>
+    <div class="card accent-amber">
+      <div class="card-title">💬 Very long conversations</div>
+      <div class="card-body">Every message includes the full conversation history as context. A 20-message conversation may be 10,000+ input tokens by the end. This is why conversation history management (summarising old turns, truncating) is worth implementing in the application layer for power users.</div>
+    </div>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">💰</div>
+    <div class="callout-body">
+      <strong>The #1 cost saver: prompt caching</strong>
+      <p>Your system prompt is sent with every single message. Without caching, 100 users × 15 messages × 1,000-token system prompt = 1.5M tokens of system prompt input per day, costing ~$4.50/day = $135/month just for the system prompt. With prompt caching enabled, that same prompt costs <strong>$13.50/month</strong> — a saving of over 90%. Enable this on day one.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 07 DATA / CHAT ARCHIVE -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-data">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <div>
+      <div class="section-title">Chat Storage, Archive &amp; Data Lifecycle</div>
+      <div class="section-desc">How conversations are stored, archived, and managed — POPIA compliant</div>
+    </div>
+  </div>
+
+  <h3>Proposed data lifecycle policy</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Period</th><th>Storage Location</th><th>Azure Tier</th><th>Approx. Cost/GB/month</th><th>Access Speed</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>0–90 days (active)</strong></td><td>Azure SQL Database</td><td>Active</td><td>~$0.115/GB</td><td>Instant</td></tr>
+        <tr><td><strong>90 days–1 year (recent)</strong></td><td>Azure Blob Storage</td><td>Cool</td><td>~$0.010/GB</td><td>Seconds</td></tr>
+        <tr><td><strong>1–3 years (compliance archive)</strong></td><td>Azure Blob Storage</td><td>Cold</td><td>~$0.004/GB</td><td>Minutes</td></tr>
+        <tr><td><strong>3+ years (long-term compliance)</strong></td><td>Azure Blob Storage</td><td>Archive</td><td>~$0.001/GB</td><td>Hours (rehydration required)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout gold">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <strong>Storage costs are negligible</strong>
+      <p>100 users × 15 messages/day × average 300 words/message = ~450,000 words/day = ~600,000 tokens/day ≈ <strong>~1.8 MB of text per day</strong>. After 3 years that's ~2 GB of chat history — costing approximately <strong>$0.002/month in archive tier</strong>. Storage is not a cost concern; it is purely a governance and POPIA concern.</p>
+    </div>
+  </div>
+
+  <h3>What happens to data on Anthropic's side</h3>
+  <div class="card-grid card-grid-2">
+    <div class="card accent-navy">
+      <div class="card-title">🔐 API Data Retention (Anthropic)</div>
+      <ul class="bullet-list">
+        <li>API logs retained for <strong>7 days only</strong> (reduced from 30 days as of Sept 2025)</li>
+        <li>API data is <strong>never used for model training</strong></li>
+        <li>Zero Data Retention (ZDR) addendum available — inputs/outputs not stored at all</li>
+        <li>SRK should sign a Data Processing Addendum (DPA) before go-live</li>
+        <li>Standard Contractual Clauses available for GDPR/POPIA cross-border transfers</li>
+      </ul>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">🗄️ SRK's Own Database (Azure SQL)</div>
+      <ul class="bullet-list">
+        <li>SRK logs all conversations <strong>independently</strong> before/after API call</li>
+        <li>SRK's copy is permanent (unless SRK deletes it) — Anthropic's 7-day log is irrelevant to SRK's audit needs</li>
+        <li>Automated lifecycle policy moves data from SQL → Blob as it ages</li>
+        <li>Admin dashboard shows full conversation history per employee</li>
+        <li>Bulk export available at any time for compliance or legal review</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Can SRK access chats from anywhere in the world?</h3>
+  <p>Yes. The SRK chatbot is a web application hosted on Azure. Employees can access it from any country using a browser and their Azure Entra ID SSO credentials. There are no geographic restrictions on the employee-facing interface. The only geographic consideration is where data is physically processed — see Section 11 for POPIA implications.</p>
+
+  <div class="callout warning">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <strong>Recommended: deploy via AWS Bedrock (Cape Town region) for POPIA compliance</strong>
+      <p>AWS recently enabled Claude models in the Cape Town region (af-south-1) via Amazon Bedrock with cross-region inference. This keeps CloudWatch logs in South Africa while routing compute as needed. This is the strongest available architecture for POPIA cross-border transfer compliance and is worth evaluating over direct Anthropic API access.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 08 UI -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-ui">
+  <div class="section-header">
+    <div class="section-num">08</div>
+    <div>
+      <div class="section-title">UI Friendliness &amp; Usability</div>
+      <div class="section-desc">How simple can we make it? What is the learning curve?</div>
+    </div>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">✅</div>
+    <div class="callout-body">
+      <strong>The UI can be as simple as WhatsApp</strong>
+      <p>Because SRK builds the interface, it can be designed specifically for SRK's employees. No menus to configure, no settings to understand, no model to choose. An employee opens the browser, logs in with their normal SRK credentials, types a question, and gets an answer. That is the entire experience for most users.</p>
+    </div>
+  </div>
+
+  <h3>Recommended UI principles for SRK</h3>
+  <div class="card-grid card-grid-3">
+    <div class="card accent-navy">
+      <div class="card-title">🎯 Single-task focus</div>
+      <div class="card-body">The chat interface does one thing: answer questions and complete tasks. No settings panel visible to employees. No model selection. No configuration. One text box, one send button.</div>
+    </div>
+    <div class="card accent-navy">
+      <div class="card-title">📜 Conversation history</div>
+      <div class="card-body">Left-panel sidebar showing past conversations, searchable by keyword. Click a conversation to resume it. Employees find their previous work instantly — no re-typing context.</div>
+    </div>
+    <div class="card accent-navy">
+      <div class="card-title">📎 File upload</div>
+      <div class="card-body">Drag-and-drop a PDF, DOCX, or XLSX into the chat window. The AI reads it and answers questions about it. No file management system — just upload and ask.</div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">💡 Suggested prompts</div>
+      <div class="card-body">New users see 4–6 suggested prompts relevant to SRK's work (e.g. "Summarise this report", "Find similar projects", "Draft an email about..."). Removes blank-page anxiety.</div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">🔖 Skill buttons</div>
+      <div class="card-body">Quick-access buttons for common skills: [Search SharePoint] [Find Project] [Search Library]. One click to trigger the most-used integrations without typing a prompt.</div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">📊 Feedback button</div>
+      <div class="card-body">Thumbs up/down on every response. Feeds into admin dashboard for system prompt refinement. Employees feel heard; IT learns what to improve.</div>
+    </div>
+  </div>
+
+  <h3>Learning curve — realistic assessment</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>User type</th><th>Time to productive</th><th>What they need</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Tech-comfortable employees</strong></td><td>Zero — immediate</td><td>Just an introduction email explaining what the tool does</td></tr>
+        <tr><td><strong>Average employees</strong></td><td>15–30 minutes</td><td>One short walkthrough or video demo showing 3 common use cases</td></tr>
+        <tr><td><strong>Less tech-comfortable employees</strong></td><td>1–2 days of practice</td><td>Guided session with a colleague + printed quick-reference card</td></tr>
+        <tr><td><strong>Admin / power users</strong></td><td>1 week</td><td>Full onboarding covering advanced prompting, file upload, and skill usage</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">💬</div>
+    <div class="callout-body">
+      <strong>Key principle: design for the least tech-comfortable user</strong>
+      <p>If the system is simple enough for the most hesitant employee to use without help, the tech-comfortable employees will thrive. The opposite approach — building a feature-rich tool that power users love but others find intimidating — typically results in low adoption and wasted investment.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 09 CODING -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-coding">
+  <div class="section-header">
+    <div class="section-num">09</div>
+    <div>
+      <div class="section-title">Including Coding Capabilities</div>
+      <div class="section-desc">How to let employees write, run, and generate code through the chatbot</div>
+    </div>
+  </div>
+
+  <p>Coding assistance is included in the Claude API at no additional cost — Claude Sonnet 4.6 is among the top-rated models for code generation, debugging, and explanation. The question is not whether to include it, but how to present it safely to employees of varying technical ability.</p>
+
+  <h3>Three levels of coding integration</h3>
+
+  <div class="card-grid card-grid-3">
+    <div class="card accent-navy">
+      <div class="card-title">Level 1 — Code generation only (recommended for launch)</div>
+      <div class="card-body">
+        <p>Claude writes code in the chat window. Employee copies it and runs it themselves in Excel, Python, or wherever needed.</p>
+        <p style="margin-top: 10px;"><strong>What it handles:</strong> Python scripts, SQL queries, VBA macros, Excel formulas, geotechnical calculations, data cleaning scripts, borehole log processing.</p>
+        <p style="margin-top: 10px;"><span class="badge badge-green">No additional infrastructure</span> — works out of the box</p>
+      </div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">Level 2 — Code + file generation (Phase 2)</div>
+      <div class="card-body">
+        <p>A <code>generate_report</code> skill accepts Claude's structured output and produces downloadable .docx, .xlsx, or .pdf files using Python libraries (python-docx, openpyxl).</p>
+        <p style="margin-top: 10px;"><strong>What it handles:</strong> Employee asks "generate a borehole log summary from this data" → downloads a formatted Word document.</p>
+        <p style="margin-top: 10px;"><span class="badge badge-amber">1–2 weeks dev per skill</span></p>
+      </div>
+    </div>
+    <div class="card accent-blue">
+      <div class="card-title">Level 3 — Code execution sandbox (Phase 3)</div>
+      <div class="card-body">
+        <p>A sandboxed Python environment (Azure Container Instances) runs Claude-generated code server-side and returns results/charts/files to the employee.</p>
+        <p style="margin-top: 10px;"><strong>What it handles:</strong> Data analysis on uploaded CSV, running geotechnical calculations, generating charts from borehole data.</p>
+        <p style="margin-top: 10px;"><span class="badge badge-red">Complex — evaluate in Phase 3</span> — security review required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">🔧</div>
+    <div class="callout-body">
+      <strong>Relevance to SRK's existing work</strong>
+      <p>SRK's Data Services team is already using Python for borehole log conversion (Excel → dotPLOT). The chatbot's coding skill can directly support this workflow — employees describe what they need, Claude writes the script, the team reviews and runs it. The existing library management system (Flask/Azure) uses the same tech stack as the chatbot, meaning there is existing in-house expertise to maintain and extend it.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 10 TRAINING & ROLLOUT -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-training">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <div>
+      <div class="section-title">Training, Rollout &amp; Migration</div>
+      <div class="section-desc">Timeline, training requirements, and additional costs for skills and management</div>
+    </div>
+  </div>
+
+  <h3>Implementation timeline — 8 weeks to full rollout</h3>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-period">Weeks 1–2</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-stem"></div></div>
+      <div class="tl-content">
+        <div class="tl-heading">Foundation — Core application and authentication</div>
+        <ul class="tl-tasks">
+          <li>Set up Azure App Service, Azure SQL, Blob Storage</li>
+          <li>Integrate Azure Entra ID SSO (uses existing SRK infrastructure)</li>
+          <li>Build chat interface (basic web UI)</li>
+          <li>Write and test the system prompt</li>
+          <li>Enable prompt caching and conversation logging</li>
+          <li>Set up admin dashboard and spend monitoring</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Weeks 3–4</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-stem"></div></div>
+      <div class="tl-content">
+        <div class="tl-heading">Skills — First two integrations</div>
+        <ul class="tl-tasks">
+          <li>Build <code>search_sharepoint()</code> skill — highest value for employees</li>
+          <li>Build <code>lookup_project()</code> skill — connects to project database</li>
+          <li>Build <code>search_library()</code> skill — connects to Inmagic/Azure library system</li>
+          <li>Enable file upload (PDF, DOCX, XLSX) with context injection</li>
+          <li>Internal review with 5-person pilot group</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Weeks 5–6</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-stem"></div></div>
+      <div class="tl-content">
+        <div class="tl-heading">Pilot — Iterate on real-world feedback</div>
+        <ul class="tl-tasks">
+          <li>Pilot with 15–20 employees across disciplines</li>
+          <li>Collect feedback via thumbs up/down and weekly review session</li>
+          <li>Refine system prompt based on edge cases discovered</li>
+          <li>Adjust skill behaviour based on real queries</li>
+          <li>Prepare onboarding materials (1-page guide, 5-min video)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Weeks 7–8</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-stem"></div></div>
+      <div class="tl-content">
+        <div class="tl-heading">Rollout — All 100 employees</div>
+        <ul class="tl-tasks">
+          <li>Company-wide announcement with 1-page quick-start guide</li>
+          <li>30-minute optional demo session per department</li>
+          <li>Full monitoring and cost alerting live</li>
+          <li>Help desk briefed on common questions</li>
+          <li>First monthly review scheduled (Week 12)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>Training requirements</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Audience</th><th>Format</th><th>Duration</th><th>Content</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>All employees</strong></td><td>Email + 1-page guide + 5-min video</td><td>30 min self-service</td><td>What the tool does, how to log in, 3 example prompts, who to contact for help</td></tr>
+        <tr><td><strong>Department heads</strong></td><td>30-min live demo</td><td>30 min</td><td>Use cases for their team, how to submit feature requests, what not to share with the AI</td></tr>
+        <tr><td><strong>Power users / early adopters</strong></td><td>60-min workshop</td><td>1 hour</td><td>Advanced prompting, file upload, skill usage, how to get the best results</td></tr>
+        <tr><td><strong>IT / admin team</strong></td><td>Full technical handover</td><td>Half day</td><td>System architecture, admin dashboard, cost monitoring, how to update system prompt, incident response</td></tr>
+        <tr><td><strong>No formal training needed</strong></td><td>—</td><td>—</td><td>The tool is designed to be self-explanatory. Most employees will need only the 1-page guide.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Ongoing management cost</h3>
+  <div class="card-grid card-grid-3">
+    <div class="card accent-navy">
+      <div class="card-title">Monthly (recurring)</div>
+      <div class="card-body">Review usage dashboard, monitor costs, respond to employee feedback, minor system prompt tweaks. Estimate: <strong>4–8 hours/month</strong> for one IT/data team member.</div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">Quarterly</div>
+      <div class="card-body">Review model version (upgrade if new version offers better value), add 1–2 new skills based on demand, run user satisfaction check. Estimate: <strong>1–2 days/quarter</strong>.</div>
+    </div>
+    <div class="card accent-blue">
+      <div class="card-title">Per new skill</div>
+      <div class="card-body">Design, build, test, and deploy each new integration. Estimate: <strong>1–3 days per skill</strong> depending on complexity. Budget R5,000–R20,000 per skill in external dev costs if outsourced.</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 11 REGULATION -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-regulation">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <div>
+      <div class="section-title">South African Regulation &amp; POPIA</div>
+      <div class="section-desc">What laws apply, what SRK must do, and current regulatory developments</div>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-icon">⚖️</div>
+    <div class="callout-body">
+      <strong>POPIA is the primary legal framework — and it already applies</strong>
+      <p>South Africa's Protection of Personal Information Act (POPIA) has been fully enforceable since July 2021. The April 2025 amended regulations sharpened requirements around breach reporting, cross-border data transfers, and consent. Maximum fine: <strong>R10 million</strong>. Criminal prosecution is possible for individuals in severe cases. This is not a future risk — it applies to SRK's AI deployment now.</p>
+    </div>
+  </div>
+
+  <h3>Key regulations affecting this deployment</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Regulation</th><th>Relevance to SRK</th><th>API model compliance posture</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>POPIA — Section 72 (cross-border transfers)</strong></td><td>Every time an employee's message is sent to the Claude API, it crosses South African borders. This triggers POPIA transfer requirements.</td><td><span class="badge badge-green">Managed</span> Sign a Data Processing Addendum (DPA) with Anthropic. Use Standard Contractual Clauses. Consider AWS Bedrock Cape Town for in-region processing.</td></tr>
+        <tr><td><strong>POPIA — Lawful basis for processing</strong></td><td>SRK must have a lawful basis to process employee data via an AI system.</td><td><span class="badge badge-green">Clear</span> Legitimate interest (internal tool for business purposes) or contractual necessity. Document this in SRK's POPIA register.</td></tr>
+        <tr><td><strong>POPIA — Data subject rights</strong></td><td>Employees have the right to access, correct, or delete their personal data.</td><td><span class="badge badge-green">Manageable</span> SRK's own database contains all chat logs. Admin can retrieve or delete any employee's data on request.</td></tr>
+        <tr><td><strong>POPIA — Breach notification</strong></td><td>Any security incident involving personal data must be reported to the Information Regulator "as soon as reasonably sure."</td><td><span class="badge badge-amber">Requires process</span> Build a breach response plan before launch. Azure provides monitoring and alerting tools.</td></tr>
+        <tr><td><strong>Draft National AI Policy (2026)</strong></td><td>SA's AI Policy is entering public consultation in 2026, with sector-specific regulations expected from 2027/28.</td><td><span class="badge badge-green">Ahead of the curve</span> The API model's audit trails, governance controls, and data documentation will satisfy future risk-based AI oversight requirements.</td></tr>
+        <tr><td><strong>Cybercrimes Act</strong></td><td>Unauthorised access, manipulation, or interference with data. Relevant to prompt injection attacks and access control.</td><td><span class="badge badge-green">Addressed</span> Azure Entra ID authentication, input filtering, and role-based access controls provide appropriate technical safeguards.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>POPIA action checklist for SRK before go-live</h3>
+  <ul class="bullet-list">
+    <li>Appoint or confirm SRK's Information Officer (required under POPIA — typically CEO or a nominated manager)</li>
+    <li>Sign a Data Processing Addendum (DPA) with Anthropic before any employee data is processed</li>
+    <li>Document the lawful basis for processing employee conversations in SRK's POPIA data register</li>
+    <li>Add the AI chatbot to SRK's Privacy Notice / Employee Notice</li>
+    <li>Establish a breach response plan covering who to notify, when, and how</li>
+    <li>Evaluate AWS Bedrock Cape Town (af-south-1) deployment for in-region data processing</li>
+    <li>Set data retention and deletion policy for chat logs (e.g. retain 3 years for compliance, then delete)</li>
+  </ul>
+
+  <div class="callout info">
+    <div class="callout-icon">🌍</div>
+    <div class="callout-body">
+      <strong>Can employees log in from any country?</strong>
+      <p>Yes — the SRK chatbot is a web application accessible from any browser anywhere in the world using SRK SSO credentials. There are no geographic access restrictions. The POPIA consideration is about where data is <em>processed</em> (server-side), not where employees <em>access</em> it from. With AWS Bedrock Cape Town, processing can remain in South Africa even when employees access from abroad.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 12 GEOPOLITICAL -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-geopolitical">
+  <div class="section-header">
+    <div class="section-num">12</div>
+    <div>
+      <div class="section-title">Geopolitical &amp; External Risk Tracker</div>
+      <div class="section-desc">Live risks affecting Anthropic and OpenAI that SRK should monitor</div>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-icon">🌐</div>
+    <div class="callout-body">
+      <strong>AI is entering its national security era — SRK must track this</strong>
+      <p>The AI landscape in 2026 is no longer just a technology story. Both Anthropic and OpenAI are now entangled in US defence policy, China competition, and geopolitical strategy. As a South African company selecting a US AI provider, SRK needs to understand these risks and ensure it has an exit strategy that doesn't depend on any single vendor's political fortunes.</p>
+    </div>
+  </div>
+
+  <div class="risk-tracker">
+
+    <div class="risk-track-item">
+      <div>
+        <div class="risk-track-title">⚔️ Anthropic vs Pentagon dispute (March 2026)</div>
+        <div class="risk-track-desc">Anthropic refused to give the US Department of Defense unrestricted access to Claude for mass surveillance and autonomous weapons. The Pentagon designated Anthropic a "supply chain risk" and cancelled their $200M contract. Anthropic filed two lawsuits. A US judge has since blocked the Pentagon's designation as "Orwellian." OpenAI signed a Pentagon deal that Anthropic refused.</div>
+        <div class="risk-track-meta">
+          <span class="badge badge-amber">Monitoring required</span>
+          <span class="badge badge-blue">Commercial API: UNAFFECTED</span>
+          <span class="badge badge-navy">Legal challenge ongoing</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 13px; color: var(--srk-muted);"><strong>SRK impact:</strong> None on commercial API access. Anthropic's refusal to enable mass surveillance is actually a positive signal for a company concerned about governance and ethics. Monitor: if Anthropic loses the dispute and is forced to change its policies, that could affect the reliability of its safety guarantees — though this seems unlikely given the court ruling.</p>
+      </div>
+      <div class="risk-status rs-watch">Watch</div>
+    </div>
+
+    <div class="risk-track-item">
+      <div>
+        <div class="risk-track-title">🇨🇳 US–China AI war &amp; model theft allegations (April 2026)</div>
+        <div class="risk-track-desc">Anthropic, OpenAI, and Google have accused Chinese labs (DeepSeek, Moonshot, MiniMax) of illegally "distilling" their models. All three companies have joined forces via the Frontier Model Forum. The US government's AI Action Plan explicitly promotes US AI exports to allies while tightening controls on China. Anthropic has already ceased providing services to majority Chinese-owned entities.</div>
+        <div class="risk-track-meta">
+          <span class="badge badge-amber">Escalating</span>
+          <span class="badge badge-blue">SRK: not affected</span>
+          <span class="badge badge-navy">Trend: more restrictions likely</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 13px; color: var(--srk-muted);"><strong>SRK impact:</strong> SRK is not a Chinese-owned entity and is not affected by the restrictions. However, if AI increasingly becomes a national security asset, US providers may face export control obligations that affect international customers. This is why MCP portability (exit to AWS Bedrock or Vertex AI) is important.</p>
+      </div>
+      <div class="risk-status rs-watch">Watch</div>
+    </div>
+
+    <div class="risk-track-item">
+      <div>
+        <div class="risk-track-title">💰 Anthropic valuation &amp; IPO preparation ($800B)</div>
+        <div class="risk-track-desc">Anthropic is valued at $800B and is preparing for a potential 2026 IPO. It has raised a $13B Series F round backed by Fidelity and sovereign wealth funds. This is both a sign of strength and a potential risk — post-IPO pressure to monetise could affect pricing or product strategy.</div>
+        <div class="risk-track-meta">
+          <span class="badge badge-green">Positive signal</span>
+          <span class="badge badge-amber">Post-IPO pricing risk</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 13px; color: var(--srk-muted);"><strong>SRK impact:</strong> Low near-term. If Anthropic goes public in 2026, pricing is unlikely to change for at least 12–18 months. MCP portability means SRK can move to another provider within weeks if pricing changes materially. Build the exit strategy into the architecture from day one.</p>
+      </div>
+      <div class="risk-status rs-manage">Manage</div>
+    </div>
+
+    <div class="risk-track-item">
+      <div>
+        <div class="risk-track-title">🇿🇦 South Africa's Draft National AI Policy (entering Cabinet, 2026)</div>
+        <div class="risk-track-desc">SA's Draft AI Policy has cleared Cabinet approval stages and is expected to be gazetted for 60-day public consultation in 2026, with finalisation in 2026/27. A sector-specific, multi-regulator model is planned. Formal AI regulations are expected from 2027/28 onward, with risk-based supervision and explainability requirements.</div>
+        <div class="risk-track-meta">
+          <span class="badge badge-amber">Upcoming</span>
+          <span class="badge badge-green">API model well-positioned</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 13px; color: var(--srk-muted);"><strong>SRK impact:</strong> The API model already provides the audit trails, governance documentation, and data controls that future SA AI regulation will require. Starting with the API model now positions SRK ahead of the regulatory curve rather than scrambling to retrofit compliance later.</p>
+      </div>
+      <div class="risk-status rs-watch">Watch</div>
+    </div>
+
+    <div class="risk-track-item">
+      <div>
+        <div class="risk-track-title">🔌 OpenAI Pentagon deal — reputational risk</div>
+        <div class="risk-track-desc">OpenAI signed a deal with the Pentagon that Anthropic refused to sign. Following the announcement, ChatGPT app uninstalls jumped 295% overnight and a #QuitGPT campaign gained traction. OpenAI's reputation for safety governance has taken a hit among the enterprise community that values ethical AI.</div>
+        <div class="risk-track-meta">
+          <span class="badge badge-amber">Reputational risk for OpenAI</span>
+          <span class="badge badge-green">Neutral for Anthropic</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 13px; color: var(--srk-muted);"><strong>SRK impact:</strong> If SRK chose OpenAI and this became a client concern, SRK would need to defend the choice. Claude's refusal to enable mass surveillance aligns better with SRK's professional ethics commitments and is a defensible choice in client conversations.</p>
+      </div>
+      <div class="risk-status rs-manage">Noted</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 13 EXIT STRATEGY -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-exitstrategy">
+  <div class="section-header">
+    <div class="section-num">13</div>
+    <div>
+      <div class="section-title">Exit Strategy &amp; Scalability</div>
+      <div class="section-desc">How SRK avoids being locked in and stays ahead of the game</div>
+    </div>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">🔓</div>
+    <div class="callout-body">
+      <strong>The MCP open standard is SRK's insurance policy</strong>
+      <p>The entire skills layer (SharePoint search, project lookup, library integration) is built on the Model Context Protocol — an open, vendor-neutral standard. If SRK ever needs to switch from Claude to another model (GPT-5, Gemini, open-source, or self-hosted), the skills layer does not need to be rewritten. Only the API call in the application layer changes. This is SRK's escape route — and it should be built in from day one.</p>
+    </div>
+  </div>
+
+  <h3>What SRK can switch and what it cannot</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Vendor-Specific?</th><th>Switch effort</th><th>Alternative options</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Claude API</strong></td><td>Yes (Anthropic)</td><td><span class="badge badge-green">Days</span></td><td>OpenAI GPT API, AWS Bedrock (Claude or other models), Google Vertex AI, Azure OpenAI Service, open-source (Llama, Mistral)</td></tr>
+        <tr><td><strong>MCP Skills layer</strong></td><td>No (open standard)</td><td><span class="badge badge-green">No change needed</span></td><td>Skills work with any MCP-compatible model</td></tr>
+        <tr><td><strong>Chat interface / UI</strong></td><td>No (SRK-built)</td><td><span class="badge badge-green">No change needed</span></td><td>SRK owns this entirely</td></tr>
+        <tr><td><strong>Azure infrastructure</strong></td><td>Azure only</td><td><span class="badge badge-amber">Weeks</span></td><td>AWS or Google Cloud equivalent — but Azure is SRK's existing platform; no reason to change</td></tr>
+        <tr><td><strong>System prompt</strong></td><td>Model-specific tuning</td><td><span class="badge badge-amber">Days</span></td><td>Different models respond to prompts differently; minor rewriting required</td></tr>
+        <tr><td><strong>Chat history / audit logs</strong></td><td>No (SRK-owned)</td><td><span class="badge badge-green">No change needed</span></td><td>SRK's database is independent of any AI vendor</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Scalability — can this grow with SRK?</h3>
+  <div class="card-grid card-grid-2">
+    <div class="card accent-navy">
+      <div class="card-title">📈 Scaling up users</div>
+      <div class="card-body">The API is usage-based — adding more users simply increases API spend proportionally. Azure App Service can be scaled vertically or horizontally within minutes. No architectural changes required to go from 100 to 500+ users. Rate limits can be increased by contacting Anthropic.</div>
+    </div>
+    <div class="card accent-navy">
+      <div class="card-title">🔧 Adding new skills</div>
+      <div class="card-body">Each new skill is an independent Python function. Adding a new integration (HR system, billing, external databases) does not affect existing skills and can be deployed without system downtime. New skills can be targeted to specific user roles — a geotechnical skill only available to the relevant team, for example.</div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">🌍 Expanding internationally</div>
+      <div class="card-body">The web application is accessible from anywhere in the world. Adding international offices requires only user provisioning in Azure Entra ID. Data residency for international offices may require additional DPA review, but the architecture supports it.</div>
+    </div>
+    <div class="card accent-gold">
+      <div class="card-title">🤖 Future AI capabilities</div>
+      <div class="card-body">As Claude releases new capabilities (multimodal, extended thinking, agent teams), SRK can adopt them without rebuilding. Model version updates are a one-line configuration change. The system prompt can be extended as new use cases are identified.</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 14 RECOMMENDATION -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-recommendation">
+  <div class="section-header">
+    <div class="section-num">14</div>
+    <div>
+      <div class="section-title">Board Recommendation</div>
+      <div class="section-desc">Decision, next steps, and budget authorisation required</div>
+    </div>
+  </div>
+
+  <div class="rec-box">
+    <div class="rec-title" style="color:#e8621a;">Recommendation: Proceed with the Claude API</div>
+    <div class="rec-body">
+      The board is asked to authorise the development of SRK's company chatbot on the <strong>Claude API (Anthropic)</strong>, using Claude Sonnet 4.6 as the primary model, hosted on SRK's existing Azure infrastructure. This is the only approach that gives SRK legal control, auditability, brand protection, and a defensible POPIA compliance posture — while being 20–60% cheaper than individual licences at typical usage.
+    </div>
+    <div class="rec-items">
+      <div class="rec-item">
+        <strong>Immediate action</strong>
+        Authorise a 2-person, 8-week development sprint. Budget: ~$1,500 API cost during development + internal dev time.
+      </div>
+      <div class="rec-item">
+        <strong>Month 1–2 deliverable</strong>
+        Proof of concept with 20-person pilot group, 3 working skills (SharePoint, project lookup, library search).
+      </div>
+      <div class="rec-item">
+        <strong>Month 2 deliverable</strong>
+        Full rollout to all 100 employees with admin dashboard, cost monitoring, and POPIA-compliant data handling.
+      </div>
+      <div class="rec-item">
+        <strong>Before go-live (legal)</strong>
+        Sign Data Processing Addendum with Anthropic. Evaluate AWS Bedrock Cape Town for in-region processing.
+      </div>
+      <div class="rec-item">
+        <strong>Ongoing governance</strong>
+        Assign one team member 20–30% time to platform management. Quarterly model and skills review.
+      </div>
+      <div class="rec-item">
+        <strong>Exit strategy (built-in)</strong>
+        All skills built on MCP open standard. System can switch to alternative AI provider within days if required.
+      </div>
+    </div>
+  </div>
+
+  <h3>What not to do</h3>
+  <div class="callout danger">
+    <div class="callout-icon">🚫</div>
+    <div class="callout-body">
+      <strong>Do not issue individual AI licences as a stopgap</strong>
+      <p>The temptation to issue Pro licences while the API chatbot is being built is understandable — but it creates governance, compliance, and reputational exposure that is difficult to walk back. Once employees are using personal AI accounts, they develop habits and workflows that are hard to migrate. If SRK is committed to the API model, the pilot period (Weeks 5–6) provides the structured access that individuals need while the system is being perfected. Do not run both in parallel.</p>
+    </div>
+  </div>
+
+  <h3>Summary of key facts for the board</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Question</th><th>Answer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>What does it cost?</td><td>$800–$1,600/month at typical use for 100 employees. Pro licences would cost $2,000/month with no control.</td></tr>
+        <tr><td>How long to build?</td><td>8 weeks to full rollout. Proof of concept with pilot group: 4 weeks.</td></tr>
+        <tr><td>What are we locked into?</td><td>Nothing permanently. MCP open standard means we can switch AI providers within days if needed.</td></tr>
+        <tr><td>What happens to our data?</td><td>SRK owns all conversation logs in our own Azure database. Anthropic deletes API logs after 7 days and never trains on them.</td></tr>
+        <tr><td>Is it POPIA compliant?</td><td>With a DPA signed and AWS Bedrock Cape Town deployment, yes — and the API model is far more defensible than individual licences.</td></tr>
+        <tr><td>Can employees use it from anywhere?</td><td>Yes — browser access from any country using existing SRK SSO credentials.</td></tr>
+        <tr><td>What if Anthropic has problems?</td><td>The Pentagon dispute does not affect commercial API access. Our MCP architecture means we can migrate to OpenAI or AWS Bedrock within days.</td></tr>
+        <tr><td>What training do employees need?</td><td>Minimal. A 1-page guide and 5-minute video is sufficient for most employees. The UI is designed to require no prior AI experience.</td></tr>
+        <tr><td>What is a token?</td><td>~3–4 characters of text. A typical message costs $0.01–$0.02. See Section 06 for the full explanation.</td></tr>
+        <tr><td>Can it write code?</td><td>Yes — code generation is included at no extra cost. File generation (DOCX, XLSX) can be added as a skill in Phase 2.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+</div><!-- end #main -->
+
+<script src="app.js"></script>
+</body>
+</html>
