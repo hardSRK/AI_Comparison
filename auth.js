@@ -1,93 +1,96 @@
-// ── SRK Auth Module ───────────────────────────────────────────────────────────
+// ── SRK Auth Module — Azure Static Web Apps Built-in Auth ────────────────────
 //
-// Auth flow — Azure App Service Easy Auth / SWA built-in auth:
+// How SWA built-in auth works (no custom OAuth code required):
 //
-//   1. Page loads → Auth.init() calls /.auth/me
-//   2. /.auth/me returns null (no cookie) → show login overlay
-//   3. User clicks "Sign in with Microsoft" → redirect to /.auth/login/aad
-//   4. Microsoft login completes → Azure platform sets session cookie, redirects back
-//   5. /.auth/me now returns user claims → hide overlay, render user in sidebar
-//   6. All API calls use credentials:'same-origin' so the session cookie is sent
-//   7. Logout → /.auth/logout clears the cookie, redirects to /
+//   [staticwebapp.config.json]
+//     └─ Declares all routes require "authenticated" role
+//     └─ 401 responses redirect to /.auth/login/aad (Microsoft Entra ID)
 //
-// The platform (Azure) validates the token before Flask ever sees the request.
-// Flask trusts the injected X-MS-CLIENT-PRINCIPAL-* headers — no token validation
-// needed in application code.
+//   [Azure edge — before any JS runs]
+//     └─ Unauthenticated GET /* → platform redirects to /.auth/login/aad
+//     └─ Microsoft login completes → platform sets __Host-swa-auth session cookie
+//     └─ Platform injects X-MS-CLIENT-PRINCIPAL-* headers into every /api/* call
+//
+//   [Browser — this file]
+//     └─ Auth.init() calls /.auth/me to read the session
+//     └─ If null (not logged in) → show login overlay, Auth.login() redirects to /.auth/login/aad
+//     └─ If user present → hide overlay, render user chip in sidebar
+//     └─ Auth.authFetch() sends credentials so session cookie goes to the FastAPI backend
+//     └─ Auth.logout() calls /.auth/logout to clear the SWA session cookie
+//
+// SWA /.auth/me response shape:
+//   { clientPrincipal: { userId, userDetails, identityProvider, userRoles, claims } }
+//   claims: [{ typ: "name", val: "Dylan Harrison" }, { typ: "preferred_username", val: "d.h@srk.co.za" }]
 
 const Auth = (() => {
   let _user = null;
 
-  // Fetch the current authenticated user from the Easy Auth / SWA endpoint.
-  // Returns null when the user is not logged in.
+  // ── Fetch current session from SWA ─────────────────────────────────────────
+  // /.auth/me is served by the SWA platform at the edge — not by the backend.
+  // Returns { clientPrincipal: null } when no session exists.
   async function _fetchUser() {
     try {
-      const res = await fetch('/.auth/me', { credentials: 'same-origin' });
+      const res = await fetch('/.auth/me', {
+        credentials: 'same-origin',
+        headers: { 'Accept': 'application/json' }
+      });
       if (!res.ok) return null;
-      const data = await res.json();
-
-      // Azure Static Web Apps returns: { clientPrincipal: { userId, userRoles, claims, ... } }
-      // Azure App Service Easy Auth returns: [{ user_id, user_claims, id_token, ... }]
-      if (data.clientPrincipal) return data.clientPrincipal;
-      if (Array.isArray(data) && data.length > 0) return data[0];
-      return null;
+      const { clientPrincipal } = await res.json();
+      // clientPrincipal is null when unauthenticated
+      return clientPrincipal || null;
     } catch {
       return null;
     }
   }
 
-  // Extract a claim value from the user's claims array.
-  // Handles both SWA (typ/val) and App Service (type/value) claim shapes.
-  function _getClaim(user, ...types) {
-    const claims = user?.claims || user?.user_claims || [];
+  // ── Extract a named claim value ─────────────────────────────────────────────
+  // SWA claims use { typ: "...", val: "..." } shape.
+  function _claim(user, ...types) {
+    const claims = user?.claims || [];
     for (const type of types) {
-      const match = claims.find(c => c.typ === type || c.type === type);
-      if (match) return match.val ?? match.value;
+      const match = claims.find(c => c.typ === type);
+      if (match?.val) return match.val;
     }
     return null;
   }
 
   // ── Public API ──────────────────────────────────────────────────────────────
 
+  // Best available display name from the token claims
   function getDisplayName(user = _user) {
     if (!user) return 'User';
     return (
-      _getClaim(user,
-        'name',
-        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname'
-      ) ||
+      _claim(user, 'name', 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname') ||
       user.userDetails?.split('@')[0] ||
-      user.userId ||
       'User'
     );
   }
 
+  // Email / UPN from the token — userDetails is usually the UPN on AAD tokens
   function getEmail(user = _user) {
-    if (!user) return null;
     return (
-      _getClaim(user,
-        'preferred_username',
-        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress',
-        'emails'
-      ) ||
-      user.userDetails ||
+      _claim(user, 'preferred_username',
+             'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress') ||
+      user?.userDetails ||
       null
     );
   }
 
-  // Redirect to Microsoft login. After auth, the platform redirects back to
-  // the page the user was on (post_login_redirect_uri).
+  // Redirect to /.auth/login/aad — SWA handles the full OAuth flow.
+  // post_login_redirect_uri sends the user back to the page they were on.
   function login() {
     const next = encodeURIComponent(window.location.pathname + window.location.search);
     window.location.href = `/.auth/login/aad?post_login_redirect_uri=${next}`;
   }
 
-  // Clear the session and return to the homepage.
+  // Clear the SWA session cookie and return to the root.
   function logout() {
     window.location.href = '/.auth/logout?post_logout_redirect_uri=/';
   }
 
-  // Authenticated fetch wrapper — sends the session cookie so the backend
-  // receives the X-MS-CLIENT-PRINCIPAL-* headers on every request.
+  // Authenticated fetch wrapper.
+  // credentials:'same-origin' sends the __Host-swa-auth session cookie so the
+  // SWA platform injects X-MS-CLIENT-PRINCIPAL-* headers into the /api/* call.
   function authFetch(url, opts = {}) {
     return fetch(url, {
       ...opts,
@@ -117,34 +120,33 @@ const Auth = (() => {
 })();
 
 // ── Auth overlay ──────────────────────────────────────────────────────────────
-// Full-screen overlay shown when the user is not authenticated.
-// The main content is hidden underneath until login succeeds.
+// Shown when /.auth/me returns no session.
+// The overlay is a belt-and-suspenders guard; the platform already redirects
+// unauthenticated requests via staticwebapp.config.json, but JS-navigated
+// pages benefit from this immediate visual feedback.
 
 function _showAuthOverlay() {
   document.getElementById('auth-overlay')?.classList.remove('auth-hidden');
   document.getElementById('sidebar')?.classList.add('auth-hidden');
   document.getElementById('main')?.classList.add('auth-hidden');
-  const toggle = document.getElementById('menu-toggle');
-  if (toggle) toggle.style.display = 'none';
+  const btn = document.getElementById('menu-toggle');
+  if (btn) btn.style.display = 'none';
 }
 
 function _hideAuthOverlay() {
   document.getElementById('auth-overlay')?.classList.add('auth-hidden');
   document.getElementById('sidebar')?.classList.remove('auth-hidden');
   document.getElementById('main')?.classList.remove('auth-hidden');
-  const toggle = document.getElementById('menu-toggle');
-  if (toggle) toggle.style.display = '';
+  const btn = document.getElementById('menu-toggle');
+  if (btn) btn.style.display = '';
 }
 
 // ── Sidebar user chip ─────────────────────────────────────────────────────────
-// Replaces the static sidebar footer with the logged-in user's name and a
-// sign-out button.
-
 function _renderUserChip(user) {
   const el = document.getElementById('sidebar-user');
   if (!el) return;
-  const name  = Auth.getDisplayName(user);
-  const email = Auth.getEmail(user);
+  const name    = Auth.getDisplayName(user);
+  const email   = Auth.getEmail(user);
   const initial = name.charAt(0).toUpperCase();
 
   el.innerHTML = `
@@ -155,9 +157,7 @@ function _renderUserChip(user) {
         ${email ? `<div class="user-email">${email}</div>` : ''}
       </div>
     </div>
-    <button class="logout-btn" onclick="Auth.logout()" aria-label="Sign out">
-      Sign out
-    </button>
+    <button class="logout-btn" onclick="Auth.logout()" type="button">Sign out</button>
   `;
 }
 
@@ -166,6 +166,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const user = await Auth.init();
 
   if (!user) {
+    // No active session — show branded login overlay.
+    // Clicking the button calls Auth.login() which redirects to /.auth/login/aad.
     _showAuthOverlay();
   } else {
     _hideAuthOverlay();
