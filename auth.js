@@ -25,9 +25,10 @@
 const Auth = (() => {
   let _user = null;
 
-  // ── Fetch current session from SWA ─────────────────────────────────────────
-  // /.auth/me is served by the SWA platform at the edge — not by the backend.
-  // Returns { clientPrincipal: null } when no session exists.
+  // ── Fetch current session from /.auth/me ────────────────────────────────────
+  // Handles both response shapes so this module works on both:
+  //   Azure Static Web Apps  → { clientPrincipal: { userId, claims, ... } }
+  //   Azure App Service Easy Auth → [{ user_id, user_claims, ... }]
   async function _fetchUser() {
     try {
       const res = await fetch('/.auth/me', {
@@ -35,9 +36,24 @@ const Auth = (() => {
         headers: { 'Accept': 'application/json' }
       });
       if (!res.ok) return null;
-      const { clientPrincipal } = await res.json();
-      // clientPrincipal is null when unauthenticated
-      return clientPrincipal || null;
+      const data = await res.json();
+
+      // Azure Static Web Apps format
+      if (data.clientPrincipal) return data.clientPrincipal;
+
+      // Azure App Service Easy Auth format — normalise to SWA-like shape
+      if (Array.isArray(data) && data.length > 0) {
+        const p = data[0];
+        return {
+          userId:           p.user_id,
+          userDetails:      p.user_id,          // UPN / email
+          identityProvider: 'aad',
+          userRoles:        ['authenticated'],
+          claims:           p.user_claims || []  // same { typ, val } shape
+        };
+      }
+
+      return null;
     } catch {
       return null;
     }
