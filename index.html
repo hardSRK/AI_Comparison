@@ -50,7 +50,8 @@
     <a class="nav-item" onclick="show('recommendation')"><span class="num">14</span>Board Recommendation</a>
   </div>
 
-  <div class="sidebar-footer">
+  <!-- Populated by auth.js after /.auth/me resolves -->
+  <div id="sidebar-user" class="sidebar-footer">
     SRK Consulting · AI Steering Committee<br>Prepared April 2026
   </div>
 </nav>
@@ -2079,6 +2080,34 @@ function closeArchPanel(){
 
 </div><!-- end #main -->
 
+<!-- ─── AUTH OVERLAY ─────────────────────────────────────────────────────────
+     Shown over the entire page when /.auth/me returns no user.
+     auth.js hides this div once the user is authenticated.
+     The Microsoft login button redirects to /.auth/login/aad (Easy Auth).
+──────────────────────────────────────────────────────────────────────────── -->
+<div id="auth-overlay" class="auth-hidden" role="dialog" aria-modal="true" aria-label="Sign in required">
+  <div class="auth-card">
+    <div class="auth-srk-logo" aria-label="SRK Consulting">SRK</div>
+    <h2>AI Board Report</h2>
+    <p>This report is confidential and restricted to SRK Consulting staff.<br>
+       Sign in with your SRK Microsoft account to continue.</p>
+    <button class="btn-ms-login" onclick="Auth.login()" type="button">
+      <!-- Microsoft logo squares -->
+      <svg width="20" height="20" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0"  y="0"  width="10" height="10" fill="#f25022"/>
+        <rect x="11" y="0"  width="10" height="10" fill="#7fba00"/>
+        <rect x="0"  y="11" width="10" height="10" fill="#00a4ef"/>
+        <rect x="11" y="11" width="10" height="10" fill="#ffb900"/>
+      </svg>
+      Sign in with Microsoft
+    </button>
+    <div class="auth-footer-note">
+      Secured by Azure Active Directory &mdash; SRK Consulting
+    </div>
+  </div>
+</div>
+
+<script src="auth.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

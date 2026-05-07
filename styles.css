@@ -937,3 +937,161 @@ p { font-size: 14px; color: var(--srk-slate); margin: 10px 0; }
 .section.active > *:nth-child(3) { animation-delay: .10s; }
 .section.active > *:nth-child(4) { animation-delay: .15s; }
 .section.active > *:nth-child(5) { animation-delay: .20s; }
+
+/* ─── AUTH OVERLAY ───────────────────────────────────────────────────────── */
+
+.auth-hidden { display: none !important; }
+
+#auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 60%, #222222 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Decorative glow to match hero section */
+#auth-overlay::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,98,26,.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.auth-card {
+  position: relative;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(232,98,26,.22);
+  border-radius: 16px;
+  padding: 52px 60px;
+  text-align: center;
+  max-width: 440px;
+  width: 90%;
+}
+
+.auth-srk-logo {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--srk-gold);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.auth-card h2 {
+  font-family: var(--font-display);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.auth-card p {
+  color: rgba(255,255,255,.5);
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+.btn-ms-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+  letter-spacing: .2px;
+}
+
+.btn-ms-login:hover {
+  background: rgba(255,255,255,.11);
+  border-color: rgba(255,255,255,.25);
+}
+
+.auth-footer-note {
+  margin-top: 22px;
+  font-size: 11px;
+  color: rgba(255,255,255,.22);
+  letter-spacing: .5px;
+}
+
+/* ─── SIDEBAR USER CHIP ──────────────────────────────────────────────────── */
+
+#sidebar-user {
+  padding: 14px 20px 18px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--srk-orange);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user-info { overflow: hidden; }
+
+.user-name {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-email {
+  color: rgba(255,255,255,.38);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+.logout-btn {
+  width: 100%;
+  background: none;
+  border: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.45);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+}
+
+.logout-btn:hover {
+  background: rgba(255,255,255,.07);
+  color: #ffffff;
+  border-color: rgba(255,255,255,.22);
+}
