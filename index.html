@@ -50,6 +50,12 @@
     <a class="nav-item" onclick="show('recommendation')"><span class="num">14</span>Board Recommendation</a>
   </div>
 
+  <div class="nav-section">
+    <div class="nav-label">Implementation</div>
+    <a class="nav-item" onclick="show('impl-current')"><span class="num">15</span>Current Implementation</a>
+    <a class="nav-item" onclick="show('impl-security')"><span class="num">16</span>Security &amp; Privacy</a>
+  </div>
+
   <!-- Populated by auth.js after /.auth/me resolves -->
   <div id="sidebar-user" class="sidebar-footer">
     SRK Consulting · AI Steering Committee<br>Prepared April 2026
@@ -2074,6 +2080,406 @@ function closeArchPanel(){
         <tr><td>Can it write code?</td><td>Yes — code generation is included at no extra cost. File generation (DOCX, XLSX) can be added as a skill in Phase 2.</td></tr>
       </tbody>
     </table>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 15 CURRENT IMPLEMENTATION -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-impl-current">
+  <div class="section-header">
+    <div class="section-num">15</div>
+    <div>
+      <div class="section-title">Current Implementation Plan</div>
+      <div class="section-desc">Where the system is today and what comes next — May 2026</div>
+    </div>
+  </div>
+
+  <div class="callout gold">
+    <div class="callout-icon">📍</div>
+    <div class="callout-body">
+      <strong>Current State — May 2026</strong>
+      <p>The app is significantly more advanced than the original Stage 1/2 boundary suggests. Stage 1 is complete and live. The Microsoft 365 integration is code-complete but blocked by a single IT Admin action: an Entra ID App Registration with delegated permissions.</p>
+    </div>
+  </div>
+
+  <h3>Built &amp; Deployed</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th style="text-align:center;width:100px;">Status</th></tr></thead>
+      <tbody>
+        <tr><td>Azure AD SSO with role-based access</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Full Claude AI chat (streaming, history, multi-turn)</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Skill routing — General, Code, Export, SharePoint, Outlook, Teams, Calendar</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Code execution (sandboxed Python container via Anthropic Sessions API)</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Document generation — Word, Excel, PowerPoint, ZIP projects</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>File upload with text extraction (PDF, DOCX, XLSX, code files)</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Three-model routing — Haiku / Sonnet / Opus with complexity heuristics</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Token spend tracking + per-user admin reports</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Conversation history with auto-summarisation</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Audit logging, input/output filtering, injection detection</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>Live website preview (generates &amp; previews HTML/CSS/JS in app)</td><td style="text-align:center;color:#15803d;font-weight:700;">&#10003; Live</td></tr>
+        <tr><td>SharePoint / Outlook / Teams / Calendar tools — code written, NOT yet active</td><td style="text-align:center;color:#e8621a;font-weight:700;">&#9888; Blocked</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout danger">
+    <div class="callout-icon">&#128274;</div>
+    <div class="callout-body">
+      <strong>What's blocking the Microsoft 365 tools</strong>
+      <p>The tool code is complete. The Graph API calls are written. What's missing is a single IT Admin action: an Entra ID App Registration with delegated permissions. Until that's in place, every Graph call returns a "no token available" error — Claude tells the user it can't access that data.</p>
+    </div>
+  </div>
+
+  <!-- Stage 1 -->
+  <div style="display:flex;align-items:center;gap:14px;margin:32px 0 12px;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#15803d;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">1</div>
+    <h3 style="margin:0;">Stage 1 — Complete</h3>
+    <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #86efac;">DONE</span>
+  </div>
+  <p>Everything from the original Stage 1 is live and operational. No further work required. The core platform — authentication, chat, document generation, audit logging — is production-grade.</p>
+
+  <!-- Stage 2 -->
+  <div style="display:flex;align-items:center;gap:14px;margin:32px 0 12px;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#e8621a;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">2</div>
+    <h3 style="margin:0;">Stage 2 — Microsoft 365 Integration</h3>
+    <span style="background:#fff7ed;color:#e8621a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #fdba74;">CURRENT PRIORITY</span>
+  </div>
+
+  <p>The constraint: application-level Graph permissions are not available. <strong>Delegated permissions only</strong> — the app can only access what the logged-in user already has access to in SharePoint/Teams/Outlook. Nothing broader.</p>
+
+  <div style="background:#1a1a1a;color:#e2e8f0;border-radius:10px;padding:20px 24px;margin:18px 0;font-family:'DM Mono',monospace;font-size:12px;line-height:1.9;">
+    <div style="color:#64748b;margin-bottom:8px;"># The approach: OBO flow + az CLI fallback</div>
+    User already logged in via Entra ID<br>
+    &nbsp;&nbsp;&#x2192; User's auth token sent to backend<br>
+    &nbsp;&nbsp;&#x2192; Backend uses MSAL (On-Behalf-Of flow) to exchange for a Graph token<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">- Service principal (client ID + secret stored in Key Vault)</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">- Token is scoped to the user's own permissions only</span><br>
+    &nbsp;&nbsp;&#x2192; Backend calls Microsoft Graph with that delegated token<br>
+    &nbsp;&nbsp;&#x2192; Falls back to SharePoint REST API for sites that misbehave with Graph<br>
+    <br>
+    <span style="color:#94a3b8;">az CLI is used locally for developer testing without the full OAuth dance.</span><br>
+    <span style="color:#94a3b8;">In production, MSAL Python handles this entirely server-side.</span>
+  </div>
+
+  <h3 style="margin-top:24px;">Stage 2A — IT Admin Prerequisites <span style="font-size:12px;font-weight:400;color:var(--srk-muted);margin-left:8px;">One-time · Not dev work · Critical path</span></h3>
+  <p style="margin-bottom:14px;">Nothing in Stage 2 works until this is done. Estimated: 1–3 business days for the IT team.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Action</th><th>Where</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Create (or identify) an App Registration in Entra ID for the chatbot backend</td><td>Azure Portal &#x2192; Entra ID &#x2192; App registrations</td><td>30 min</td></tr>
+        <tr><td>2</td><td>Add delegated API permissions (see table below)</td><td>App registration &#x2192; API permissions</td><td>15 min</td></tr>
+        <tr><td>3</td><td>Grant Admin Consent for those permissions</td><td>Same page — "Grant admin consent for SRK" button</td><td>5 min</td></tr>
+        <tr><td>4</td><td>Create a Client Secret</td><td>App registration &#x2192; Certificates &amp; secrets</td><td>5 min</td></tr>
+        <tr><td>5</td><td>Store the secret in Azure Key Vault (or App Service environment variable temporarily)</td><td>Key Vault or App Service &#x2192; Configuration</td><td>15 min</td></tr>
+        <tr><td>6</td><td>Provide dev team with: Tenant ID, Client ID, Client Secret (via Key Vault reference)</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:20px;">Delegated permissions required <span style="font-size:12px;font-weight:400;color:var(--srk-muted);">— NOT application permissions</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Permission</th><th>Scope</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><code>User.Read</code></td><td>Delegated</td><td>User profile, display name, email, department</td></tr>
+        <tr><td><code>Sites.Read.All</code></td><td>Delegated</td><td>Browse and search SharePoint sites and document libraries</td></tr>
+        <tr><td><code>Files.Read</code></td><td>Delegated</td><td>Read files from OneDrive / SharePoint drives</td></tr>
+        <tr><td><code>Mail.Read</code></td><td>Delegated</td><td>Search and read Outlook emails</td></tr>
+        <tr><td><code>Calendars.Read</code></td><td>Delegated</td><td>Read upcoming calendar events</td></tr>
+        <tr><td><code>Team.ReadBasic.All</code></td><td>Delegated</td><td>List Teams the user is a member of</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout gold">
+    <div class="callout-icon">&#128274;</div>
+    <div class="callout-body">
+      <strong>Security note for managers</strong>
+      <p>Delegated permissions mean the chatbot can only see what that specific logged-in user can already see. A junior analyst cannot access a partner's restricted documents even through the AI. The app inherits SharePoint/Teams permissions exactly as-is — no privilege escalation is possible.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:24px;">Stage 2B — Backend OBO Token Flow <span style="font-size:12px;font-weight:400;color:var(--srk-muted);">~1 week dev · Starts after IT completes 2A</span></h3>
+  <div class="card-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;">
+    <div class="card accent-navy" style="padding:14px 16px;">
+      <div class="card-title" style="font-size:12px;">What gets built</div>
+      <div class="card-body" style="font-size:13px;">
+        <ul style="margin-left:16px;margin-top:6px;line-height:1.9;">
+          <li>Add <code>msal</code> Python library to backend</li>
+          <li>Implement <code>OBOTokenService</code> — accepts user JWT, calls MSAL OBO endpoint, returns Graph-scoped token cached per session</li>
+          <li>Backend acquires Graph token server-side via user's existing auth token</li>
+          <li>az CLI wrapper for local developer testing</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card accent-green" style="padding:14px 16px;">
+      <div class="card-title" style="font-size:12px;">Frontend change required</div>
+      <div class="card-body" style="font-size:13px;"><strong>Zero.</strong> The user's existing auth token is reused. The OBO exchange happens entirely on the backend — no user-facing changes needed.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:24px;">Stage 2C — SharePoint <span style="font-size:12px;font-weight:400;color:var(--srk-muted);">2–3 days dev · Code already written</span></h3>
+  <p>Once OBO tokens work, these are immediately available:</p>
+  <div class="card-grid card-grid-3" style="margin-top:12px;">
+    <div class="card accent-blue" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">Search SharePoint</div><div class="card-body" style="font-size:13px;">Find documents, reports, templates by keyword across all sites the user has access to</div></div>
+    <div class="card accent-blue" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">Get document content</div><div class="card-body" style="font-size:13px;">Retrieve and read the full text of a found document — feeds directly into Claude's context</div></div>
+    <div class="card accent-amber" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">SharePoint REST fallback</div><div class="card-body" style="font-size:13px;">For sites that don't respond correctly to Graph search — falls back to SharePoint REST API to handle problem sites gracefully</div></div>
+  </div>
+
+  <h3 style="margin-top:24px;">Stage 2D — Outlook, Teams &amp; Calendar <span style="font-size:12px;font-weight:400;color:var(--srk-muted);">2–3 days dev · Code already written</span></h3>
+  <div class="card-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;">
+    <div class="card accent-navy" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">Outlook</div><div class="card-body" style="font-size:13px;">Search emails by keyword, sender, or subject &middot; Read full conversation threads</div></div>
+    <div class="card accent-navy" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">Teams &amp; Calendar</div><div class="card-body" style="font-size:13px;">Search channel discussions &middot; List upcoming calendar events for the week</div></div>
+  </div>
+
+  <h3 style="margin-top:24px;">Stage 2E — User Profile Enrichment <span style="font-size:12px;font-weight:400;color:var(--srk-muted);">2 days dev</span></h3>
+  <p>Call <code>GET /me</code> on Graph to populate user's department, manager, office, and groups. Makes AI responses more contextual ("As a geotechnical engineer in the Cape Town office…"). Shows richer user profile card in sidebar.</p>
+
+  <div style="background:#f9f9f9;border:1px solid var(--srk-border);border-radius:10px;padding:20px 24px;margin-top:24px;">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--srk-muted);margin-bottom:14px;">Stage 2 Total Timeline</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;">
+      <div><strong>IT Admin setup (2A):</strong> 1–3 business days</div>
+      <div><strong>Backend OBO flow (2B):</strong> 4–5 days dev</div>
+      <div><strong>SharePoint activation + testing (2C):</strong> 3 days dev</div>
+      <div><strong>Outlook / Teams / Calendar (2D):</strong> 3 days dev</div>
+      <div><strong>User profile enrichment (2E):</strong> 2 days dev</div>
+      <div style="color:#e8621a;font-weight:700;">Total dev: ~3 weeks from when IT completes 2A</div>
+    </div>
+  </div>
+
+  <!-- Stage 3 -->
+  <div style="display:flex;align-items:center;gap:14px;margin:32px 0 12px;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#64748b;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">3</div>
+    <h3 style="margin:0;">Stage 3 — Enhanced AI Intelligence</h3>
+    <span style="background:#f1f5f9;color:#64748b;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #cbd5e1;">MONTHS 3–6</span>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Feature</th><th>What it does</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td>3.1</td><td>Deep SharePoint browsing</td><td>Browse folder trees, list all files in a library, filter by type/date</td><td>1 week</td></tr>
+        <tr><td>3.2</td><td>OneDrive recent files</td><td>Surface the user's most recently accessed files for context</td><td>3 days</td></tr>
+        <tr><td>3.3</td><td>Teams channel summarisation</td><td>Summarise recent messages in a project channel — catch up after leave</td><td>2 weeks</td></tr>
+        <tr><td>3.4</td><td>Role-aware AI personas</td><td>Different system prompts + tool access by role (analyst vs. partner vs. admin)</td><td>1 week</td></tr>
+        <tr><td>3.5</td><td>Usage analytics dashboard</td><td>What are staff asking? Which skills are most used? Token cost by department</td><td>2 weeks</td></tr>
+        <tr><td>3.6</td><td>Migrate to Managed Identity</td><td>Replace client secret with Azure Managed Identity — more secure, no secret rotation needed</td><td>1 week</td></tr>
+        <tr><td>3.7</td><td>Project-aware context</td><td>Pull project number from message &#x2192; automatically surface related SharePoint docs</td><td>2 weeks</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:32px;">Timeline Summary for Managers</h3>
+  <div style="background:#1a1a1a;color:#e2e8f0;border-radius:10px;padding:22px 26px;font-family:'DM Mono',monospace;font-size:12px;line-height:2;margin-top:12px;">
+    <span style="color:#c9a227;font-weight:700;">MAY 2026 (now)</span><br>
+    &nbsp;&nbsp;&#x251C;&#x2500; IT Admin setup: App Registration + delegated permissions&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[IT team: 1&#x2013;3 days]</span><br>
+    &nbsp;&nbsp;&#x2514;&#x2500; Backend OBO token flow development&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[Dev: week 1]</span><br>
+    <br>
+    <span style="color:#c9a227;font-weight:700;">JUNE 2026</span><br>
+    &nbsp;&nbsp;&#x251C;&#x2500; SharePoint integration live (search + read docs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[Dev: week 2]</span><br>
+    &nbsp;&nbsp;&#x251C;&#x2500; Outlook search live&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[Dev: week 2&#x2013;3]</span><br>
+    &nbsp;&nbsp;&#x251C;&#x2500; Teams + Calendar live&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[Dev: week 3]</span><br>
+    &nbsp;&nbsp;&#x2514;&#x2500; Stage 2 complete — all M365 data flowing into chat<br>
+    <br>
+    <span style="color:#c9a227;font-weight:700;">JULY–AUGUST 2026</span><br>
+    &nbsp;&nbsp;&#x251C;&#x2500; Deep SharePoint browsing + OneDrive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[Dev: weeks 1&#x2013;2]</span><br>
+    &nbsp;&nbsp;&#x251C;&#x2500; Teams channel summarisation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[Dev: weeks 2&#x2013;4]</span><br>
+    &nbsp;&nbsp;&#x2514;&#x2500; Usage analytics dashboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#86efac;">[Dev: weeks 3&#x2013;4]</span><br>
+    <br>
+    <span style="color:#c9a227;font-weight:700;">SEPTEMBER 2026 ONWARD</span><br>
+    &nbsp;&nbsp;&#x251C;&#x2500; Role-aware AI personas<br>
+    &nbsp;&nbsp;&#x251C;&#x2500; Project-aware context injection<br>
+    &nbsp;&nbsp;&#x2514;&#x2500; Managed Identity migration (security hardening)
+  </div>
+
+  <div class="callout gold" style="margin-top:28px;">
+    <div class="callout-icon">&#128273;</div>
+    <div class="callout-body">
+      <strong>Key principle for managers</strong>
+      <p>The Microsoft 365 integration does not give the AI any access it doesn't already have. A user's AI session can only read SharePoint sites and emails that user can already open in their browser. The app cannot elevate privileges, cross user boundaries, or access content outside normal SharePoint/Teams permissions.</p>
+      <p style="margin-top:8px;"><strong>The single most impactful action right now is IT Admin completing Stage 2A.</strong> Three weeks after that, staff will be able to ask the AI to search SharePoint documents, find project emails, and check their calendar — all within their normal permissions.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- 16 SECURITY IMPLEMENTATION -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="section" id="sec-impl-security">
+  <div class="section-header">
+    <div class="section-num">16</div>
+    <div>
+      <div class="section-title">Security &amp; Privacy</div>
+      <div class="section-desc">Data security, privacy controls, and POPIA compliance for the SRK AI Assistant</div>
+    </div>
+  </div>
+
+  <!-- DATA SECURITY -->
+  <h3>Data Security &amp; Privacy</h3>
+  <p>All conversation data is stored on SRK's own infrastructure — not with Anthropic.</p>
+
+  <div class="card-grid card-grid-3" style="margin-top:14px;">
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">Conversations &amp; messages</div><div class="card-body" style="font-size:13px;">SRK's Azure-hosted database · SRK IT admins only</div></div>
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">Uploaded files</div><div class="card-body" style="font-size:13px;">SRK's Azure Blob Storage · Only the employee who uploaded them</div></div>
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">Generated downloads</div><div class="card-body" style="font-size:13px;">SRK's Azure server (temporary) · Only the employee who requested them</div></div>
+  </div>
+
+  <h3 style="margin-top:24px;">What data is stored, and where?</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Data</th><th>Stored where</th><th>Who can see it</th></tr></thead>
+      <tbody>
+        <tr><td>Conversation messages</td><td>SRK's Azure database</td><td>SRK IT admins only</td></tr>
+        <tr><td>Uploaded file text</td><td>SRK's Azure database</td><td>The employee who uploaded it</td></tr>
+        <tr><td>Generated downloads</td><td>SRK's Azure server (temporary)</td><td>The employee who requested it</td></tr>
+        <tr><td>Login / identity</td><td>Microsoft Entra ID (Azure AD)</td><td>SRK IT admins</td></tr>
+        <tr><td>Usage &amp; cost logs</td><td>SRK's Azure database</td><td>SRK IT admins</td></tr>
+        <tr><td>Audit trail (who asked what)</td><td>SRK's Azure database</td><td>SRK IT admins</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:24px;">How is a question processed?</h3>
+  <div style="background:#1a1a1a;color:#e2e8f0;border-radius:10px;padding:20px 24px;font-family:'DM Mono',monospace;font-size:12px;line-height:2;margin:12px 0;">
+    <span style="color:#86efac;">1.</span> Browser &#x2192; SRK's server &nbsp;&nbsp;<span style="color:#94a3b8;">(encrypted HTTPS — same security as online banking)</span><br>
+    <span style="color:#86efac;">2.</span> SRK's server &#x2192; Anthropic API &nbsp;&nbsp;<span style="color:#94a3b8;">(encrypted HTTPS — question text sent to generate an answer)</span><br>
+    <span style="color:#86efac;">3.</span> Anthropic &#x2192; SRK's server &nbsp;&nbsp;<span style="color:#94a3b8;">(the answer comes back)</span><br>
+    <span style="color:#86efac;">4.</span> SRK's server &#x2192; employee's browser &nbsp;&nbsp;<span style="color:#94a3b8;">(the answer is displayed)</span><br>
+    <span style="color:#86efac;">5.</span> Conversation saved to SRK's own database
+  </div>
+  <p>Anthropic only ever sees the text of the question and answer — briefly, in memory, while generating the response. <strong>They cannot see who is asking.</strong> No names, no email addresses, no Azure identity is sent to Anthropic.</p>
+
+  <h3 style="margin-top:24px;">Is our data used to train Claude?</h3>
+  <div class="callout success">
+    <div class="callout-icon">&#10003;</div>
+    <div class="callout-body">
+      <strong>No. SRK uses the Anthropic API — not the consumer product.</strong>
+      <p>Anthropic's contractual commitment for API customers: <em>"Anthropic will not train models on API inputs or outputs without the customer's explicit consent."</em></p>
+      <p style="margin-top:8px;">This is the same commitment that applies to companies like Salesforce, Notion, and Slack when they embed Claude. Claude.ai (the consumer website) operates under different terms — but SRK does not use that product.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:24px;">How long does Anthropic hold data?</h3>
+  <p>Anthropic retains API inputs/outputs for up to <strong>30 days</strong> for safety and abuse monitoring, after which they are deleted from Anthropic's systems. SRK can request <strong>zero data retention (ZDR)</strong> under an enterprise agreement — this means Anthropic deletes data immediately after responding, with no retention at all.</p>
+
+  <h3 style="margin-top:24px;">Security certifications</h3>
+  <div class="card-grid card-grid-3" style="margin-top:12px;">
+    <div class="card accent-navy" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">SOC 2 Type II</div><div class="card-body" style="font-size:13px;">Independent audit of Anthropic's security controls — passed</div></div>
+    <div class="card accent-navy" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">GDPR compliant</div><div class="card-body" style="font-size:13px;">Compliance for European data subjects — relevant to EU-related clients</div></div>
+    <div class="card accent-navy" style="padding:14px 16px;"><div class="card-title" style="font-size:12px;">TLS 1.2/1.3</div><div class="card-body" style="font-size:13px;">All data in transit encrypted — banking-grade security</div></div>
+  </div>
+
+  <h3 style="margin-top:24px;">Summary for managers</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Concern</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>Is conversation data stored by Anthropic?</td><td><strong>No</strong> — stored on SRK's own Azure server</td></tr>
+        <tr><td>Is our data used to train Claude?</td><td><strong>No</strong> — API customers are contractually excluded from training</td></tr>
+        <tr><td>Can Anthropic identify which SRK employee asked what?</td><td><strong>No</strong> — user identities are never sent to Anthropic</td></tr>
+        <tr><td>Is data encrypted in transit?</td><td><strong>Yes</strong> — TLS encryption (same as banking)</td></tr>
+        <tr><td>Who controls access to conversation history?</td><td>SRK IT admins only</td></tr>
+        <tr><td>Can we request zero data retention?</td><td><strong>Yes</strong> — available under Anthropic enterprise agreement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- POPIA SECTION -->
+  <div style="border-top:2px solid var(--srk-border);margin-top:44px;padding-top:36px;">
+    <div style="display:flex;align-items:baseline;gap:16px;">
+      <h3 style="font-size:22px;margin:0;">POPIA Compliance</h3>
+      <span style="font-size:13px;color:var(--srk-muted);">Protection of Personal Information Act — South Africa</span>
+    </div>
+  </div>
+
+  <h3 style="margin-top:24px;">What POPIA requires (simplified)</h3>
+  <div class="card-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;">
+    <div style="background:white;border:1px solid var(--srk-border);border-radius:10px;padding:14px 16px;font-size:13px;"><strong>1.</strong> Process personal information for a specific, legitimate purpose</div>
+    <div style="background:white;border:1px solid var(--srk-border);border-radius:10px;padding:14px 16px;font-size:13px;"><strong>2.</strong> Collect only what is necessary (minimisation)</div>
+    <div style="background:white;border:1px solid var(--srk-border);border-radius:10px;padding:14px 16px;font-size:13px;"><strong>3.</strong> Keep it secure with appropriate safeguards</div>
+    <div style="background:white;border:1px solid var(--srk-border);border-radius:10px;padding:14px 16px;font-size:13px;"><strong>4.</strong> Not share it without adequate protections (especially cross-border)</div>
+    <div style="background:white;border:1px solid var(--srk-border);border-radius:10px;padding:14px 16px;font-size:13px;"><strong>5.</strong> Allow individuals to access, correct, or delete their data</div>
+    <div style="background:white;border:1px solid var(--srk-border);border-radius:10px;padding:14px 16px;font-size:13px;"><strong>6.</strong> Appoint an Information Officer and have a written Operator agreement</div>
+  </div>
+
+  <h3 style="margin-top:24px;">How the SRK AI Assistant maps to POPIA</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>POPIA Requirement</th><th>How the system addresses it</th></tr></thead>
+      <tbody>
+        <tr><td>Lawful purpose</td><td>Processing employee data to provide a workplace productivity tool — legitimate business purpose</td></tr>
+        <tr><td>Minimisation</td><td>Only collects what's needed: conversation text, login identity (from Azure AD), usage logs</td></tr>
+        <tr><td>Security safeguards</td><td>TLS encryption in transit, Azure AD authentication, role-based access, audit logs on all actions</td></tr>
+        <tr><td>Operator agreement</td><td>Anthropic's API Terms of Service constitute a data processing agreement — commit not to use data for training, delete within 30 days</td></tr>
+        <tr><td>Data subject rights</td><td>Employees can delete their own conversations via the app; IT admins can delete any record from the database</td></tr>
+        <tr><td>Retention limits</td><td>Conversations stored on SRK's server — a retention policy should be set (see gaps below)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:24px;">Who is responsible for what under POPIA</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Role</th><th>Party</th><th>Responsibility</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Responsible Party</strong></td><td>SRK Consulting</td><td>Determines purpose, controls data, accountable for compliance</td></tr>
+        <tr><td><strong>Operator</strong></td><td>Anthropic (API)</td><td>Processes data on SRK's instruction, bound by API Terms</td></tr>
+        <tr><td><strong>Operator</strong></td><td>Microsoft Azure</td><td>Hosts the server and database, bound by Microsoft's DPA</td></tr>
+        <tr><td><strong>Data Subjects</strong></td><td>SRK Employees</td><td>The people whose information is processed</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout danger" style="margin-top:24px;">
+    <div class="callout-icon">&#9888;&#65039;</div>
+    <div class="callout-body">
+      <strong>The cross-border transfer issue (important)</strong>
+      <p>When an employee asks a question, the text is sent to Anthropic's servers in the United States. POPIA Section 72 restricts transferring personal information outside South Africa unless the recipient country has adequate data protection laws, or there is a binding contractual agreement providing equivalent protection.</p>
+      <p style="margin-top:8px;">The US does not have an adequacy determination from South Africa. However, Anthropic's API Terms of Service include data processing commitments (no training, 30-day deletion, SOC 2 certified, GDPR compliant) that constitute contractual safeguards. <strong>SRK's legal team should confirm this in writing or request a formal DPA from Anthropic.</strong></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:24px;">Gaps to address — what SRK needs to do</h3>
+  <p style="margin-bottom:12px;">These are organisational steps, not system changes:</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Gap</th><th>Action Required</th><th>Who</th></tr></thead>
+      <tbody>
+        <tr><td>No conversation retention policy</td><td>Set a deletion schedule (e.g., conversations older than 12 months auto-deleted)</td><td>SRK IT + Legal</td></tr>
+        <tr><td>Employee notification</td><td>Inform employees in writing that AI conversations are logged and stored</td><td>HR / IT</td></tr>
+        <tr><td>Formal DPA with Anthropic</td><td>Request or confirm a Data Processing Agreement covers POPIA requirements</td><td>SRK Legal</td></tr>
+        <tr><td>PAIA manual update</td><td>Update SRK's PAIA manual to include the AI assistant as a processing activity</td><td>SRK Legal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:24px;">What the system does well for POPIA</h3>
+  <div class="card-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;">
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-body" style="font-size:13px;">Conversations are siloed per user — employees cannot see each other's conversations</div></div>
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-body" style="font-size:13px;">Full audit trail — every action logged with timestamp and user identity</div></div>
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-body" style="font-size:13px;">Azure AD authentication — no separate passwords, identity controlled by SRK's own directory</div></div>
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-body" style="font-size:13px;">Role-based access — admin users can see usage logs, regular employees cannot</div></div>
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-body" style="font-size:13px;">Data never leaves SRK's control except for the encrypted API call to Anthropic</div></div>
+    <div class="card accent-green" style="padding:14px 16px;"><div class="card-body" style="font-size:13px;">No third-party analytics — no Google Analytics, no tracking pixels, no advertising data</div></div>
+  </div>
+
+  <div class="callout gold" style="margin-top:28px;">
+    <div class="callout-icon">&#128203;</div>
+    <div class="callout-body">
+      <strong>Summary for the compliance/legal team</strong>
+      <p>The SRK AI Assistant is substantially POPIA-compliant in its technical design. The main outstanding items are organisational and contractual, not technical:</p>
+      <ol style="margin-left:20px;margin-top:8px;line-height:2;">
+        <li>SRK needs a formal employee notification that conversations are logged</li>
+        <li>SRK needs to confirm or obtain a Data Processing Agreement with Anthropic</li>
+        <li>SRK should implement an automated data retention/deletion policy</li>
+      </ol>
+      <p style="margin-top:10px;">The cross-border transfer to Anthropic's US servers is the key legal question — Anthropic's existing API commitments are likely sufficient, but SRK's legal team should confirm this in writing. Anthropic publishes their full Privacy Policy and API Data Usage Policy at <strong>anthropic.com/legal</strong>. For formal zero data retention, SRK would contact Anthropic's enterprise sales team.</p>
+    </div>
   </div>
 
 </section>
